@@ -2,6 +2,6 @@ package logger;
 
 public interface ILogger {
 	void write(Object...args);
-//	String writeTime(long value, TimeUnit timeUnit);
+    String writeTime(long value, TimeUnit timeUnit);
 	void close();
 }
