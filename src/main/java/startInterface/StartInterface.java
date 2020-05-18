@@ -11,8 +11,12 @@ public class StartInterface extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.setTitle("HDD-BenchMark");
+        primaryStage.resizableProperty().setValue(false);
+
+
+
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 
