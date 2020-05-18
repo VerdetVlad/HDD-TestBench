@@ -52,15 +52,17 @@ public class Controller implements Initializable {
         textBox.setText("Niset Text sa vad\nCum ar arata scrise!!");
         textBox.setEditable(false);
 
-        rwChart.setLegendVisible(false);
+//        rwChart.setLegendVisible(false);
         rwChart.setAnimated(false);
         rwChart.setTitle("Write and Read test");
 
 
-       /* write.setName("WRITE");
-        read.setName("READ");*/
+        write.setName("WRITE");
+        read.setName("READ");
 
-
+        addToChart(12,32,Integer.toString(1));
+        addToChart(12,32,Integer.toString(2));
+        addToChart(12,32,Integer.toString(3));
 
 
     }
