@@ -123,7 +123,7 @@
    <bottom>
       <HBox prefHeight="300.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <BarChart fx:id="rwChart" prefHeight="440.0" prefWidth="600.0" style="-fx-border-color: RED; -fx-category-gap:5; -fx-bar-gap: 2;">
+            <BarChart fx:id="rwChart" prefHeight="440.0" prefWidth="600.0" style="-fx-border-color: #2029ff; -fx-category-gap:5; -fx-bar-gap: 2;">
               <xAxis>
                 <CategoryAxis side="BOTTOM" fx:id="xAxis" />
               </xAxis>

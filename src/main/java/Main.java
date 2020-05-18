@@ -6,6 +6,5 @@ public class Main {
 
         StartInterface.main(args);
 
-
     }
 }

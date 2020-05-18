@@ -60,9 +60,6 @@ public class Controller implements Initializable {
         write.setName("WRITE");
         read.setName("READ");
 
-        addToChart(12,32,Integer.toString(1));
-        addToChart(12,32,Integer.toString(2));
-        addToChart(12,32,Integer.toString(3));
 
 
     }
@@ -85,17 +82,23 @@ public class Controller implements Initializable {
 
     public  void addToChart(double writeValue, double readValue, String index)
     {
+        int b1 = bufferChoice1.getSelectionModel().getSelectedIndex();
+        int b2 = bufferChoice2.getSelectionModel().getSelectedIndex();
+
+        int dif = b2 - b1 + 1;
 
 
         write.getData().add(new XYChart.Data(index,writeValue));
         read.getData().add(new XYChart.Data(index,readValue));
 
+        write.getData().add(new XYChart.Data(index+1,writeValue));
+        read.getData().add(new XYChart.Data(index+1,readValue));
 
-        chartData.clear();
-        chartData.addAll(write,read);
 
 
-        rwChart.setData(chartData);
+
+        rwChart.getData().removeAll();
+        rwChart.setData(FXCollections.observableArrayList(write,read));
 
 
     }
@@ -114,8 +117,9 @@ public class Controller implements Initializable {
     }
 
 
-    public void test(ActionEvent actionEvent) {
-        addToChart(6.6,9.7,Integer.toString(i));
-        i++;
+
+    public void startHandle(ActionEvent actionEvent) {
+
+
     }
 }
