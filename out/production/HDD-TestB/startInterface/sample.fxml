@@ -56,7 +56,7 @@
                         <Font name="System Bold" size="16.0" />
                     </font>
                 </Label>
-            <Button id="startButton" fx:id="startButton" alignment="CENTER" mnemonicParsing="false" onAction="#test" text="Start" GridPane.columnIndex="3" GridPane.rowIndex="3">
+            <Button id="startButton" fx:id="startButton" alignment="CENTER" mnemonicParsing="false" onAction="#startHandle" text="Start" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <font>
                   <Font name="Bookman Old Style Bold" size="16.0" />
                </font>
