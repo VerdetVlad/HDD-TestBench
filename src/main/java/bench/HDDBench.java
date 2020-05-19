@@ -10,19 +10,19 @@ public class HDDBench implements IBenchmark {
 
     private Boolean running;
     private ArrayList<BufferedOutputStream> outputStream = new ArrayList<BufferedOutputStream>();
-    private ArrayList<Integer> bufferSize = new ArrayList<Integer>();
-    private ArrayList<Integer> fileSize = new ArrayList<Integer>();
-    private ArrayList<Boolean> options = new ArrayList<Boolean>();
+    public static ArrayList<Integer> bufferSize = new ArrayList<Integer>();
+    public static ArrayList<Integer> fileSize = new ArrayList<Integer>();
+    public static ArrayList<Boolean> options = new ArrayList<Boolean>();
     public static ArrayList<String> path = new ArrayList<>();
 
     //creates files and opens them
     public void initialize(int[] buffer, int[] file, boolean[] options, int indexDif) {
-        for(int i = buffer[0] ; i < buffer[1] ; ++i) {
-            this.bufferSize.add(Integer.valueOf(i));
+        for(int i = 0 ; i < 2 ; ++i) {
+            this.bufferSize.add(Integer.valueOf(buffer[i]));
         }
 
-        for(int i = file[0] ; i < file[1] ; ++i) {
-            this.fileSize.add(Integer.valueOf(i));
+        for(int i = 0 ; i < 2 ; ++i) {
+            this.fileSize.add(Integer.valueOf(file[i]));
         }
 
         for(int i = 0 ; i < options.length ; ++i) {
