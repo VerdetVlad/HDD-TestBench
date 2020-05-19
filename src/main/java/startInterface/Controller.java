@@ -1,5 +1,6 @@
 package startInterface;
 
+import bench.HDDBench;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,6 +12,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 
@@ -32,7 +34,8 @@ public class Controller implements Initializable {
     public NumberAxis yAxis2;
     public TextArea textBox2;
     public Button startButton2;
-
+    public CheckBox deleteCheckBox;
+    public CheckBox deleteCheckBox2;
 
 
     @FXML
@@ -148,13 +151,20 @@ public class Controller implements Initializable {
     public void startHandle(ActionEvent actionEvent) {
 
         addToChart(12,21,"1");
-        Integer[] b = new Integer[2];
+        int[] b = new int[2];
         b[0] = bufferChoice1.getSelectionModel().getSelectedIndex();
         b[1] = bufferChoice2.getSelectionModel().getSelectedIndex();
 
-        int f = fileChoice.getSelectionModel().getSelectedIndex();
+        int[] f = new int[2];
+        f[0] = fileChoice.getSelectionModel().getSelectedIndex();
 
 
+        boolean options[] = new boolean[2];
+        options[0]=false;
+        options[1]=deleteCheckBox.isSelected();
+
+        HDDBench bench = new HDDBench();
+        bench.initialize(b,f,options);
 
     }
 
@@ -163,11 +173,23 @@ public class Controller implements Initializable {
     public void startHandle2(ActionEvent actionEvent) {
 
         addToChart2(12,21,"1");
-        Integer[] f = new Integer[2];
+
+        int[] b = new int[2];
+        b[0] = bufferChoiceTab2.getSelectionModel().getSelectedIndex();
+
+
+        int[] f = new int[2];
         f[0] = fileChoiceTab21.getSelectionModel().getSelectedIndex();
         f[1] = fileChoiceTab22.getSelectionModel().getSelectedIndex();
 
-        int b = bufferChoiceTab2.getSelectionModel().getSelectedIndex();
+
+        boolean options[] = new boolean[2];
+        options[0]=true;
+        options[1]=deleteCheckBox2.isSelected();
+
+        HDDBench bench = new HDDBench();
+        bench.initialize(b,f,options);
+
 
 
 

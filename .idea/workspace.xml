@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Comments inside IBenchmark">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Am creat un basic FileWriter si FileReader;&#10;&#10;FileWriter creaza un fisier.&#10;Are ca param numele fisierului, bufferSize si fileSize.&#10;&#10;FileReader citeste un fisier.(in cazu nostru ala creat de FileWriter).&#10;Are aceasi parametri ca FileWriter." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,8 +57,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -116,8 +113,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../GOA/GameOrderingApp" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.39770114" />
     <property name="recentsLimit" value="5" />
@@ -132,7 +129,7 @@
       <recent name="C:\Users\Vlad\Desktop\HDD\HDD-TestB\src\main\java\startInterface" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main (1)">
+  <component name="RunManager" selected="Application.FileWriter">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -154,21 +151,17 @@
       <option name="testName" />
       <method />
     </configuration>
-    <configuration default="true" type="TestNG">
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
+    </configuration>
+    <configuration name="FileWriter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bench.FileWriter" />
+      <module name="HDD-TestB" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Main (1)" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -226,6 +219,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
@@ -240,9 +245,11 @@
       <item itemvalue="Application.Main (1)" />
       <item itemvalue="Application.StartInterface" />
       <item itemvalue="Application.StartInterface (1)" />
+      <item itemvalue="Application.FileWriter" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FileWriter" />
         <item itemvalue="Application.StartInterface (1)" />
         <item itemvalue="Application.StartInterface" />
         <item itemvalue="Application.Main (1)" />
@@ -274,6 +281,7 @@
       <workItem from="1589828509912" duration="359000" />
       <workItem from="1589829368955" duration="6642000" />
       <workItem from="1589870122791" duration="3907000" />
+      <workItem from="1589894643352" duration="1433000" />
     </task>
     <task id="LOCAL-00001" summary="2.0">
       <created>1589827651879</created>
@@ -296,7 +304,21 @@
       <option name="project" value="LOCAL" />
       <updated>1589881556737</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Am trecut la jdk 8-251">
+      <created>1589886831288</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1589886831288</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Am creat un basic FileWriter si FileReader;&#10;&#10;FileWriter creaza un fisier.&#10;Are ca param numele fisierului, bufferSize si fileSize.&#10;&#10;FileReader citeste un fisier.(in cazu nostru ala creat de FileWriter).&#10;Are aceasi parametri ca FileWriter.">
+      <created>1589896051647</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1589896051647</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,13 +333,15 @@
     </ignored-roots>
     <MESSAGE value="2.0" />
     <MESSAGE value="Comments inside IBenchmark" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comments inside IBenchmark" />
+    <MESSAGE value="Am trecut la jdk 8-251" />
+    <MESSAGE value="Am creat un basic FileWriter si FileReader;&#10;&#10;FileWriter creaza un fisier.&#10;Are ca param numele fisierului, bufferSize si fileSize.&#10;&#10;FileReader citeste un fisier.(in cazu nostru ala creat de FileWriter).&#10;Are aceasi parametri ca FileWriter." />
+    <option name="LAST_COMMIT_MESSAGE" value="Am creat un basic FileWriter si FileReader;&#10;&#10;FileWriter creaza un fisier.&#10;Are ca param numele fisierului, bufferSize si fileSize.&#10;&#10;FileReader citeste un fisier.(in cazu nostru ala creat de FileWriter).&#10;Are aceasi parametri ca FileWriter." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589824607773">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589894724646">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589824607773" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589894724646" />
     <state x="1245" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1589800669092">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -331,62 +355,66 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1104" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589723242561" />
-    <state x="607" y="114" key="CommitChangelistDialog2" timestamp="1589886805082">
+    <state x="607" y="114" key="CommitChangelistDialog2" timestamp="1589896050012">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="607" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589886805082" />
-    <state x="1154" y="261" key="FileChooserDialogImpl" timestamp="1589886676356">
+    <state x="607" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589896050012" />
+    <state x="1154" y="261" key="FileChooserDialogImpl" timestamp="1589894681149">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1154" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589886676356" />
-    <state width="1877" height="223" key="GridCell.Tab.0.bottom" timestamp="1589886806585">
+    <state x="1154" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589894681149" />
+    <state width="1877" height="266" key="GridCell.Tab.0.bottom" timestamp="1589896067759">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1316" height="179" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1360.728@1920.0.1360.728" timestamp="1589828675946" />
-    <state width="1877" height="223" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589886806585" />
-    <state width="1877" height="223" key="GridCell.Tab.0.center" timestamp="1589886806585">
+    <state width="1877" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589896067759" />
+    <state width="1877" height="266" key="GridCell.Tab.0.center" timestamp="1589896067758">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1316" height="179" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1360.728@1920.0.1360.728" timestamp="1589828675946" />
-    <state width="1877" height="223" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589886806585" />
-    <state width="1877" height="223" key="GridCell.Tab.0.left" timestamp="1589886806585">
+    <state width="1877" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589896067758" />
+    <state width="1877" height="266" key="GridCell.Tab.0.left" timestamp="1589896067758">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1316" height="179" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1360.728@1920.0.1360.728" timestamp="1589828675945" />
-    <state width="1877" height="223" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589886806585" />
-    <state width="1877" height="223" key="GridCell.Tab.0.right" timestamp="1589886806585">
+    <state width="1877" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589896067758" />
+    <state width="1877" height="266" key="GridCell.Tab.0.right" timestamp="1589896067759">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1316" height="179" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1360.728@1920.0.1360.728" timestamp="1589828675946" />
-    <state width="1877" height="223" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589886806585" />
-    <state width="1877" height="243" key="GridCell.Tab.1.bottom" timestamp="1589825318698">
+    <state width="1877" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589896067759" />
+    <state width="1340" height="328" key="GridCell.Tab.1.bottom" timestamp="1589894981807">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="243" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589825318698" />
-    <state width="1877" height="243" key="GridCell.Tab.1.center" timestamp="1589825318698">
+    <state width="1340" height="328" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589894981807" />
+    <state width="1340" height="328" key="GridCell.Tab.1.center" timestamp="1589894981806">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="243" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589825318698" />
-    <state width="1877" height="243" key="GridCell.Tab.1.left" timestamp="1589825318698">
+    <state width="1340" height="328" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589894981806" />
+    <state width="1340" height="328" key="GridCell.Tab.1.left" timestamp="1589894981806">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="243" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589825318698" />
-    <state width="1877" height="243" key="GridCell.Tab.1.right" timestamp="1589825318698">
+    <state width="1340" height="328" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589894981806" />
+    <state width="1340" height="328" key="GridCell.Tab.1.right" timestamp="1589894981807">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="243" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589825318698" />
+    <state width="1340" height="328" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589894981807" />
     <state x="672" y="236" key="MultipleFileMergeDialog" timestamp="1589885115884">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="672" y="236" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589885115884" />
-    <state x="875" y="162" key="SettingsEditor" timestamp="1589886730493">
+    <state x="875" y="162" key="SettingsEditor" timestamp="1589894692700">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="875" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589886730493" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1589881565902">
+    <state x="875" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589894692700" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1589896129581">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589881565902" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589896129581" />
+    <state x="661" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1589894655695">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="661" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589894655695" />
     <state x="1103" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1589815502694">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
