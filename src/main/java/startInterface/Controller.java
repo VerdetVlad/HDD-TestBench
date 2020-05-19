@@ -82,19 +82,11 @@ public class Controller implements Initializable {
 
     public  void addToChart(double writeValue, double readValue, String index)
     {
-        int b1 = bufferChoice1.getSelectionModel().getSelectedIndex();
-        int b2 = bufferChoice2.getSelectionModel().getSelectedIndex();
 
-        int dif = b2 - b1 + 1;
-
-
-        write.getData().add(new XYChart.Data(index,writeValue));
-        read.getData().add(new XYChart.Data(index,readValue));
-
-        write.getData().add(new XYChart.Data(index+1,writeValue));
-        read.getData().add(new XYChart.Data(index+1,readValue));
-
-
+        for(int j=0;j<5;j++){
+        write.getData().add(new XYChart.Data(index+j, writeValue+j));
+        read.getData().add(new XYChart.Data(index+j, readValue+j));
+       }
 
 
         rwChart.getData().removeAll();
@@ -119,6 +111,14 @@ public class Controller implements Initializable {
 
 
     public void startHandle(ActionEvent actionEvent) {
+
+
+        Integer[] b = new Integer[2];
+        b[0] = bufferChoice1.getSelectionModel().getSelectedIndex();
+        b[1] = bufferChoice2.getSelectionModel().getSelectedIndex();
+
+        int f = fileChoice.getSelectionModel().getSelectedIndex();
+
 
 
     }

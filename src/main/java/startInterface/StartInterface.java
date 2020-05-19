@@ -15,6 +15,9 @@ public class StartInterface extends Application {
         primaryStage.resizableProperty().setValue(false);
 
 
+
+
+
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
