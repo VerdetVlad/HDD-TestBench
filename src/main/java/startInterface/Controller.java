@@ -158,13 +158,14 @@ public class Controller implements Initializable {
         int[] f = new int[2];
         f[0] = fileChoice.getSelectionModel().getSelectedIndex();
 
+        int indexDif = b[1] - b[0];
 
         boolean options[] = new boolean[2];
         options[0]=false;
         options[1]=deleteCheckBox.isSelected();
 
         HDDBench bench = new HDDBench();
-        bench.initialize(b,f,options);
+        bench.initialize(b,f,options,indexDif);
 
     }
 
@@ -182,13 +183,14 @@ public class Controller implements Initializable {
         f[0] = fileChoiceTab21.getSelectionModel().getSelectedIndex();
         f[1] = fileChoiceTab22.getSelectionModel().getSelectedIndex();
 
+        int indexDif = f[0] - f[1];
 
         boolean options[] = new boolean[2];
         options[0]=true;
         options[1]=deleteCheckBox2.isSelected();
 
         HDDBench bench = new HDDBench();
-        bench.initialize(b,f,options);
+        bench.initialize(b,f,options,indexDif);
 
 
 
