@@ -38,7 +38,7 @@ public class FileReader {
 
 
         // create stream writer with given buffer size
-        final BufferedInputStream inputStream = new BufferedInputStream(folderPath, myBufferSize);
+        final BufferedInputStream inputStream = new BufferedInputStream(folderPath);
 
         byte[] buffer = new byte[myBufferSize];
         int i = 0;
@@ -47,7 +47,7 @@ public class FileReader {
         timer.start();
         while (i < toRead) {
 
-            inputStream.read();
+            inputStream.read(buffer,0,myBufferSize);
 
             i++;
         }
