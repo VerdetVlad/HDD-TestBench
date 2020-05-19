@@ -14,20 +14,53 @@ public class FileWriter {
     private static final int MIN_FILE_SIZE = 1024 * 1024 * 1; // MB
     private static final int MAX_FILE_SIZE = 1024 * 1024 * 512; // MB
     private Timer timer = new Timer();
-    private double benchScore;
+
 
 
     public static void main(String[] args) {
-        FileWriter nou = new FileWriter();
-        FileReader nou2 = new FileReader();
 
-        try {
-            System.out.println(nou.writeWithBufferSize("test",1024,131072,false)/ 1_000_000_000.0);
-            System.out.println(nou2.readWithBufferSize("test",1024,131072)/ 1_000_000_000.0);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        System.out.println(3^4);
     }
+
+
+
+    /**
+     * Writes a file with random binary content on the disk, using a given file
+     * path and buffer size.
+     */
+    private long writeWithBufferSize(String fileName, int myBufferSize,
+                                     long fileSize) throws IOException
+    {
+
+        OutputStream folderPath = new FileOutputStream(System.getProperty("user.dir") + "\\" + fileName);
+
+        // create stream writer with given buffer size
+        final BufferedOutputStream outputStream = new BufferedOutputStream(folderPath, myBufferSize);
+
+        byte[] buffer = new byte[myBufferSize];
+        int i = 0;
+        long toWrite = fileSize / myBufferSize;
+        Random rand = new Random();
+
+
+        timer.start();
+        while (i < toWrite) {
+            // generate random content to write
+            //pause
+            rand.nextBytes(buffer);
+            //resume
+
+            outputStream.write(buffer);
+            i++;
+        }
+
+        return timer.stop();
+
+    }
+
+
+
+
 
 
     /**
@@ -48,7 +81,7 @@ public class FileWriter {
     public void streamWriteFixedSize(String filePrefix, String fileSuffix,
                                      int minIndex, int maxIndex, long fileSize, boolean clean) throws IOException {
 
-     /*   System.out.println("Stream write benchmark with fixed file size");
+        /*System.out.println("Stream write benchmark with fixed file size");
         int currentBufferSize = MIN_BUFFER_SIZE;
         String fileName;
         int counter = 0;
@@ -101,43 +134,8 @@ public class FileWriter {
                 + String.format("%.2f", benchScore) + " MB/sec");*/
     }
 
-    /**
-     * Writes a file with random binary content on the disk, using a given file
-     * path and buffer size.
-     */
-    private long writeWithBufferSize(String fileName, int myBufferSize,
-                                     long fileSize, boolean clean) throws IOException
-    {
-
-        OutputStream folderPath = new FileOutputStream(System.getProperty("user.dir") + "\\" + fileName);
 
 
-
-
-        // create stream writer with given buffer size
-        final BufferedOutputStream outputStream = new BufferedOutputStream(folderPath, myBufferSize);
-
-        byte[] buffer = new byte[myBufferSize];
-        int i = 0;
-        long toWrite = fileSize / myBufferSize;
-        Random rand = new Random();
-
-        timer.start();
-        while (i < toWrite) {
-            // generate random content to write
-            rand.nextBytes(buffer);
-
-            outputStream.write(buffer);
-            i++;
-        }
-
-        return timer.stop();
-
-     /*
-        outputStream.close();
-        if(clean)
-            delete file on exit ?*/
-    }
 
     private void printStats(String fileName, long totalBytes, int myBufferSize)
     {

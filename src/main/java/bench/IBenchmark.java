@@ -6,7 +6,7 @@ public interface IBenchmark {
 	//creates file and opens them
 	//options[0] == fixedFile/fixedBuffer
 	//options[1] == clean or not
-	void initialize(int[] buffer, int[] file, boolean[] options);
+	void initialize(int[] buffer, int[] file, boolean[] options, int indexDif);
 
 
 	//run for the parameters given in initailize

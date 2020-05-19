@@ -10,40 +10,33 @@ public class HDDBench implements IBenchmark {
 
     private Boolean running;
     private ArrayList<BufferedOutputStream> outputStream = new ArrayList<BufferedOutputStream>();
-    private ArrayList<Integer> buffer = new ArrayList<Integer>();
-    private ArrayList<Integer> file = new ArrayList<Integer>();
+    private ArrayList<Integer> bufferSize = new ArrayList<Integer>();
+    private ArrayList<Integer> fileSize = new ArrayList<Integer>();
     private ArrayList<Boolean> options = new ArrayList<Boolean>();
+    private ArrayList<String> path = new ArrayList<>();
 
     //creates files and opens them
-    public void initialize(int[] buffer, int[] file, boolean[] options) {
+    public void initialize(int[] buffer, int[] file, boolean[] options, int indexDif) {
         for(int i = buffer[0] ; i < buffer[1] ; ++i) {
-            this.buffer.add(Integer.valueOf(i));
+            this.bufferSize.add(Integer.valueOf(i));
         }
 
         for(int i = file[0] ; i < file[1] ; ++i) {
-            this.file.add(Integer.valueOf(i));
+            this.fileSize.add(Integer.valueOf(i));
         }
 
         for(int i = 0 ; i < options.length ; ++i) {
             this.options.add(Boolean.valueOf(options[i]));
         }
 
-        File folderObj = new File("./");
 
-        if(folderObj.isDirectory() == false) {
-            folderObj.mkdirs();
-        }
+        for(int i = 0 ; i < indexDif ; ++i) {
+            String tempPath;
 
-        for(int i = 0 ; i < (file[1] - file[0] + 1) ; ++i) {
-            FileOutputStream fileObj = null;
+            tempPath = "File_" + i;
 
-            try {
-                fileObj = new FileOutputStream(new File("File_" + i));
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
+            path.add(tempPath);
 
-            outputStream.add(new BufferedOutputStream(fileObj));
         }
     }
 
