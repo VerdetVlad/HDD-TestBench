@@ -115,11 +115,12 @@ public class FileWriter {
      *            - size of the buffer used for writing in the disk
      */
 
-    public static String streamWriteFixedBuffer(int minIndex, int maxIndex, int bufferSize) throws IOException {
+    public static String streamWriteFixedBuffer(int minIndex, int maxIndex, int bufferIndex) throws IOException {
         String exportVal = "";
         int indexDiff = (maxIndex - minIndex + 1);
         int counter = 0;
         double benchScore = 0;
+        int bufferSize = bufferSizes[bufferIndex];
 
         while (counter < indexDiff) {
             int currentFileSize = fileSizes[minIndex + counter];
