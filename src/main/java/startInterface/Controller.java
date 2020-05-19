@@ -23,11 +23,18 @@ import java.util.concurrent.TimeUnit;
 public class Controller implements Initializable {
 
 
-    public TextArea textBox;
-    public CategoryAxis xAxis;
-    public NumberAxis yAxis;
-    @FXML
-    private Button startButton;
+
+    public ChoiceBox fileChoiceTab22;
+    public ChoiceBox bufferChoiceTab2;
+    public ChoiceBox fileChoiceTab21;
+    public BarChart rwChart2;
+    public CategoryAxis xAxis2;
+    public NumberAxis yAxis2;
+    public TextArea textBox2;
+    public Button startButton2;
+
+
+
     @FXML
     private ChoiceBox bufferChoice1;
     @FXML
@@ -36,18 +43,28 @@ public class Controller implements Initializable {
     private ChoiceBox fileChoice;
     @FXML
     private BarChart rwChart;
+    public TextArea textBox;
+    public CategoryAxis xAxis;
+    public NumberAxis yAxis;
+
 
     private   XYChart.Series<String,Double> write = new XYChart.Series<>();
     private   XYChart.Series<String,Double> read = new XYChart.Series<>();
 
-    private   ObservableList<XYChart.Series<String,Double>> chartData = FXCollections.observableArrayList();
-    private static int i=8;
+    private   XYChart.Series<String,Double> write2 = new XYChart.Series<>();
+    private   XYChart.Series<String,Double> read2 = new XYChart.Series<>();
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         bufferChoice1.setValue("1 KB");
         bufferChoice2.setValue("1 KB");
         fileChoice.setValue("32 KB");
+
+        bufferChoiceTab2.setValue("1 KB");
+        fileChoiceTab21.setValue("32 KB");
+        fileChoiceTab22.setValue("32 KB");
+
 
         textBox.setText("Niset Text sa vad\nCum ar arata scrise!!");
         textBox.setEditable(false);
@@ -56,9 +73,15 @@ public class Controller implements Initializable {
         rwChart.setAnimated(false);
         rwChart.setTitle("Write and Read test");
 
+        rwChart2.setAnimated(false);
+        rwChart2.setTitle("Write and Read test");
+
 
         write.setName("WRITE");
         read.setName("READ");
+
+        write2.setName("WRITE");
+        read2.setName("READ");
 
 
 
@@ -73,8 +96,18 @@ public class Controller implements Initializable {
         int b2 = bufferChoice2.getSelectionModel().getSelectedIndex();
         int f = fileChoice.getSelectionModel().getSelectedIndex();
 
+
         if(b1 > b2) bufferChoice2.setValue(str[b1]);
         if((b2 - 5) > f) fileChoice.setValue(str[b2]);
+
+        int bTab2 = bufferChoiceTab2.getSelectionModel().getSelectedIndex();
+        int fTab1 = fileChoiceTab21.getSelectionModel().getSelectedIndex();
+        int fTab2 = fileChoiceTab22.getSelectionModel().getSelectedIndex();
+
+
+        if((bTab2 - 5) > fTab1) fileChoiceTab21.setValue(str[bTab2]);
+        if(fTab1 > fTab2) fileChoiceTab22.setValue(str[fTab1+5]);
+
 
     }
 
@@ -95,24 +128,26 @@ public class Controller implements Initializable {
 
     }
 
+    public  void addToChart2(double writeValue, double readValue, String index)
+    {
 
-    public ChoiceBox getBufferChoice1() {
-        return bufferChoice1;
-    }
+        for(int j=0;j<5;j++){
+            write2.getData().add(new XYChart.Data(index+j, writeValue+j));
+            read2.getData().add(new XYChart.Data(index+j, readValue+j));
+        }
 
-    public ChoiceBox getBufferChoice2() {
-        return bufferChoice2;
-    }
 
-    public ChoiceBox getFileChoice() {
-        return fileChoice;
+        rwChart2.getData().removeAll();
+        rwChart2.setData(FXCollections.observableArrayList(write2,read2));
+
+
     }
 
 
 
     public void startHandle(ActionEvent actionEvent) {
 
-
+        addToChart(12,21,"1");
         Integer[] b = new Integer[2];
         b[0] = bufferChoice1.getSelectionModel().getSelectedIndex();
         b[1] = bufferChoice2.getSelectionModel().getSelectedIndex();
@@ -122,4 +157,29 @@ public class Controller implements Initializable {
 
 
     }
+
+
+
+    public void startHandle2(ActionEvent actionEvent) {
+
+        addToChart2(12,21,"1");
+        Integer[] f = new Integer[2];
+        f[0] = fileChoiceTab21.getSelectionModel().getSelectedIndex();
+        f[1] = fileChoiceTab22.getSelectionModel().getSelectedIndex();
+
+        int b = bufferChoiceTab2.getSelectionModel().getSelectedIndex();
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
 }
