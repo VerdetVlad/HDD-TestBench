@@ -43,17 +43,16 @@ public class FileReader {
         byte[] buffer = new byte[myBufferSize];
         int i = 0;
         int toRead = fileSize / myBufferSize;
-        Random rand = new Random();
 
         timer.start();
         while (i < toRead) {
-            // generate random content to write
+
             inputStream.read();
 
             i++;
         }
 
-        return (double)(timer.stop()/SecInNano);
+        return timer.stop();
 
     }
 
@@ -61,7 +60,7 @@ public class FileReader {
 
 
 
-    public static String streamReadFixedSize(String[] fileNames,
+    public static String streamReadFixedSize(
                                      int minIndex, int maxIndex,
                                      int fileIndex) throws IOException {
 
@@ -80,14 +79,16 @@ public class FileReader {
             int buffSize = bufferSizes[minIndex+i];
 
             double timeSec = readWithBufferSize(HDDBench.path.get(i),buffSize,fileSize);
-            double mbPerSec = (fileSize/MB_SIZE) / timeSec;
+            timeSec/=SecInNano;
+
+            double mbPerSec = ((double)fileSize/MB_SIZE) / timeSec;
             benchScore += mbPerSec;
 
             result +=  String.format("%.2f",mbPerSec) + " MB/S;";
         }
 
         benchScore = benchScore/indexDif;
-        result+=String.format("%.2f",benchScore);
+        result+=String.format("%.2f",benchScore)+ " MB/S";
 
 
         return result;
@@ -96,7 +97,7 @@ public class FileReader {
 
 
 
-    public static String streamReadFixedBuffer(String[] fileNames,
+    public static String streamReadFixedBuffer(
                                               int minIndex, int maxIndex,
                                               int buffIndex) throws IOException {
 
@@ -114,14 +115,15 @@ public class FileReader {
             int fileSize = fileSizes[minIndex+i];
 
             double timeSec = readWithBufferSize(HDDBench.path.get(i),buffSize,fileSize);
-            double mbPerSec = (fileSize/MB_SIZE) / timeSec;
+            timeSec/=SecInNano;
+            double mbPerSec = ((double)fileSize/MB_SIZE) / timeSec;
             benchScore += mbPerSec;
 
             result +=  String.format("%.2f",mbPerSec) + " MB/S;";
         }
 
         benchScore = benchScore/indexDif;
-        result+=String.format("%.2f",benchScore);
+        result+=String.format("%.2f",benchScore) + " MB/S";
 
 
         return result;

@@ -1,10 +1,32 @@
 
 import startInterface.*;
+import bench.*;
+
+import java.io.IOException;
+
 
 public class Main {
     public static void main(String[] args) {
 
-        StartInterface.main(args);
+        HDDBench test= new HDDBench();
+
+        int[] b = {2,2};
+        int[] f = {1,4};
+        boolean[] o = {true,false};
+        int dif = 4-1+1;
+
+        test.initialize(b,f,o,dif);
+
+
+        try {
+            System.out.println(FileWriter.streamWriteFixedBuffer(test.fileSize.get(0), test.fileSize.get(1),test.bufferSize.get(0)));
+            System.out.println(FileReader.streamReadFixedBuffer(test.fileSize.get(0), test.fileSize.get(1),test.bufferSize.get(0)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        //StartInterface.main(args);
 
     }
 }
