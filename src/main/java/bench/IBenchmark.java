@@ -4,12 +4,13 @@ public interface IBenchmark {
 
 
 	//creates file and opens them
-	void initialize();
-
-
 	//options[0] == fixedFile/fixedBuffer
 	//options[1] == clean or not
-	void run(int[] buffer, int[] file, int[] options);
+	void initialize(int[] buffer, int[] file, boolean[] options);
+
+
+	//run for the parameters given in initailize
+	void run();
 
 
 	//run for smallest value
