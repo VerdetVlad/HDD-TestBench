@@ -1,19 +1,39 @@
 package bench;
 
 import java.io.*;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.Random;
 
 import timer.Timer;
 
 public class FileWriter {
 
-    private static final int MIN_BUFFER_SIZE = 1024 * 1; // KB
-    private static final int MAX_BUFFER_SIZE = 1024 * 1024 * 32; // MB
-    private static final int MIN_FILE_SIZE = 1024 * 1024 * 1; // MB
-    private static final int MAX_FILE_SIZE = 1024 * 1024 * 512; // MB
-    private Timer timer = new Timer();
+    private static final int KB_SIZE = 1024; // KB
+    private static final int MB_SIZE = 1024 * 1024; // MB
+    private static final int SECinNANO = (int) Math.pow(10, 9);
+    private static final int[] bufferSizes = {
+            1 * KB_SIZE,
+            2 * KB_SIZE,
+            4 * KB_SIZE,
+            8 * KB_SIZE,
+            16 * KB_SIZE,
+            32 * KB_SIZE,
+            64 * KB_SIZE,
+            128 * KB_SIZE,
+            256 * KB_SIZE,
+            512 * KB_SIZE,
+            1 * MB_SIZE
+    };
+    private static final int[] fileSizes = {
+            32 * KB_SIZE,
+            64 * KB_SIZE,
+            128 * KB_SIZE,
+            256 * KB_SIZE,
+            512 * KB_SIZE,
+            1 * MB_SIZE,
+            2 * MB_SIZE,
+            4 * MB_SIZE
+    };
+    private static Timer timer = new Timer();
 
 
 
@@ -28,8 +48,7 @@ public class FileWriter {
      * Writes a file with random binary content on the disk, using a given file
      * path and buffer size.
      */
-    private long writeWithBufferSize(String fileName, int myBufferSize,
-                                     long fileSize) throws IOException
+    private static double writeWithBufferSize(String fileName, int myBufferSize, int fileSize) throws IOException
     {
 
         OutputStream folderPath = new FileOutputStream(System.getProperty("user.dir") + "\\" + fileName);
@@ -39,7 +58,7 @@ public class FileWriter {
 
         byte[] buffer = new byte[myBufferSize];
         int i = 0;
-        long toWrite = fileSize / myBufferSize;
+        int toWrite = fileSize / myBufferSize;
         Random rand = new Random();
 
 
@@ -54,22 +73,12 @@ public class FileWriter {
             i++;
         }
 
-        return timer.stop();
-
+        return (double)(int)(timer.stop() / SECinNANO);
     }
-
-
-
-
-
 
     /**
      * Writes files on disk using a variable write buffer and fixed file size.
      *
-     * @param filePrefix
-     *            - Path and file name
-     * @param fileSuffix
-     *            - file extension
      * @param minIndex
      *            - start buffer size index
      * @param maxIndex
@@ -78,80 +87,60 @@ public class FileWriter {
      *            - size of the benchmark file to be written in the disk
      * @throws IOException
      */
-    public void streamWriteFixedSize(String filePrefix, String fileSuffix,
-                                     int minIndex, int maxIndex, long fileSize, boolean clean) throws IOException {
-
-        /*System.out.println("Stream write benchmark with fixed file size");
-        int currentBufferSize = MIN_BUFFER_SIZE;
-        String fileName;
+    public static String streamWriteFixedSize(int minIndex, int maxIndex, int fileSize) throws IOException {
+        String exportVal = "";
+        int indexDiff = (maxIndex - minIndex + 1);
         int counter = 0;
-        benchScore = 0;
+        double benchScore = 0;
 
-        while (currentBufferSize <= MAX_BUFFER_SIZE
-                && counter <= maxIndex - minIndex) {
-            fileName = ... prefix + ? + suffix
-            writeWithBufferSize(fileName, currentBufferSize, fileSize);
-            // update buffer size
-			...
+        while (counter < indexDiff) {
+            int currentBufferSize = bufferSizes[minIndex + counter];
+            double timeNano = writeWithBufferSize(HDDBench.path.get(counter), currentBufferSize, fileSize);
+            double crtScore = (fileSize / MB_SIZE) / timeNano;
+            benchScore += crtScore;
+            exportVal += (String.format("%.2f", crtScore) + " MB/sec" + ";");
+
             counter++;
         }
 
-        benchScore /= (maxIndex - minIndex + 1);
-        String partition = filePrefix.substring(0, filePrefix.indexOf(":\\"));
-        System.out.println("File write score on partition " + partition + ": "
-                + String.format("%.2f", benchScore) + " MB/sec");*/
+        benchScore /= indexDiff;
+
+        exportVal += (String.format("%.2f", benchScore) + " MB/sec");
+
+        return exportVal;
     }
 
-    /*
+    /**
      * Writes files on disk using a variable file size and fixed buffer size.
      *
-     * @param filePrefix
-     *            - Path and file name
-     * @param fileSuffix
-     *            - file extension
      * @param minIndex
      *            - start file size index
      * @param maxIndex
      *            - end file size index
-     * @param fileSize
-     *            - size of the benchmark file to be written in the disk*/
+     * @param bufferSize
+     *            - size of the buffer used for writing in the disk
+     */
 
-    public void streamWriteFixedBuffer(String filePrefix, String fileSuffix,
-                                       int minIndex, int maxIndex, int bufferSize, boolean clean) throws IOException {
+    public static String streamWriteFixedBuffer(int minIndex, int maxIndex, int bufferSize) throws IOException {
+        String exportVal = "";
+        int indexDiff = (maxIndex - minIndex + 1);
+        int counter = 0;
+        double benchScore = 0;
 
-      /*  System.out.println("Stream write benchmark with fixed buffer size");
-        int currentFileSize = MIN_FILE_SIZE;
+        while (counter < indexDiff) {
+            int currentFileSize = fileSizes[minIndex + counter];
+            double timeNano = writeWithBufferSize(HDDBench.path.get(counter), bufferSize, currentFileSize);
+            double crtScore = (currentFileSize / MB_SIZE) / timeNano;
+            benchScore += crtScore;
+            exportVal += (String.format("%.2f", crtScore) + " MB/sec" + ";");
 
-        while (currentFileSize <= MAX_FILE_SIZE
-                && counter <= maxIndex - minIndex) {
-			...
-            // update fileSize instead of bufferSize
+            counter++;
         }
 
-        benchScore /= (maxIndex - minIndex + 1);
-        String partition = filePrefix.substring(0, filePrefix.indexOf(":\\"));
-        System.out.println("File write score on partition " + partition + ": "
-                + String.format("%.2f", benchScore) + " MB/sec");*/
-    }
+        benchScore /= indexDiff;
 
+        exportVal += (String.format("%.2f", benchScore) + " MB/sec");
 
-
-
-    private void printStats(String fileName, long totalBytes, int myBufferSize)
-    {
-     /*   NumberFormat nf = new DecimalFormat("#.00");
-        final long time = timer.stop();
-
-
-        double seconds = ...; // calculated from timer's 'time'
-        double megabytes = totalBytes / ...; //
-        double rate = ... MB/s; // calculated from the previous two variables
-        System.out.println("Done writing " + totalBytes + " bytes to file: "
-                + fileName + " in " + nf.format(seconds) + " ms ("
-                + nf.format(rate) + "MB/sec)" + " with a buffer size of "
-                + myBufferSize / 1024 + " kB");
-
-        // actual score is write speed (MB/s)
-        benchScore += rate;*/
+        return exportVal;
     }
 }

@@ -13,7 +13,7 @@ public class HDDBench implements IBenchmark {
     private ArrayList<Integer> bufferSize = new ArrayList<Integer>();
     private ArrayList<Integer> fileSize = new ArrayList<Integer>();
     private ArrayList<Boolean> options = new ArrayList<Boolean>();
-    private ArrayList<String> path = new ArrayList<>();
+    public static ArrayList<String> path = new ArrayList<>();
 
     //creates files and opens them
     public void initialize(int[] buffer, int[] file, boolean[] options, int indexDif) {
