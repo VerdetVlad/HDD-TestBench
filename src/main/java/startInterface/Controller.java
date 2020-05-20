@@ -20,6 +20,8 @@ import java.net.URL;
 
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
+
+import javafx.scene.layout.Background;
 import utilities.StringManagement;
 
 import javax.swing.*;
@@ -83,12 +85,17 @@ public class Controller implements Initializable {
 
 //        rwChart.setLegendVisible(false);
         rwChart.setAnimated(false);
-        rwChart.setTitle("Write and Read results:");
+
 
         rwChart2.setAnimated(false);
-        rwChart2.setTitle("Write and Read results:");
+
 
         yAxis.setLabel("MB");
+        yAxis2.setLabel("MB");
+
+        xAxis.setLabel("Buffer -->");
+        xAxis2.setLabel("File -->");
+
 
 
 

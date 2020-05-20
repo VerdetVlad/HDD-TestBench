@@ -33,18 +33,24 @@ public class FileWriter {
         Random rand = new Random();
 
 
+
         timer.start();
         while (i < toWrite) {
-            // generate random content to write
+
             //pause
             timer.pause();
+            // generate random content to write
             rand.nextBytes(buffer);
-            timer.resume();
             //resume
+            timer.resume();
 
             outputStream.write(buffer);
             i++;
         }
+
+
+
+
 
         outputStream.close();
         return timer.stop();
