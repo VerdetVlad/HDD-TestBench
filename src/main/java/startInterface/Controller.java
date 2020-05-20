@@ -33,10 +33,11 @@ public class Controller implements Initializable {
     public BarChart rwChart2;
     public CategoryAxis xAxis2;
     public NumberAxis yAxis2;
-    public TextArea textBox2;
+    public  TextArea textBox2;
     public Button startButton2;
     public CheckBox deleteCheckBox;
     public CheckBox deleteCheckBox2;
+    public Button startButton;
 
 
     @FXML
@@ -47,16 +48,12 @@ public class Controller implements Initializable {
     private ChoiceBox fileChoice;
     @FXML
     private BarChart rwChart;
-    public TextArea textBox;
+    public  TextArea textBox;
     public CategoryAxis xAxis;
     public NumberAxis yAxis;
 
 
-    private   XYChart.Series<String,Double> write = new XYChart.Series<>();
-    private   XYChart.Series<String,Double> read = new XYChart.Series<>();
 
-    private   XYChart.Series<String,Double> write2 = new XYChart.Series<>();
-    private   XYChart.Series<String,Double> read2 = new XYChart.Series<>();
 
     private static final int KB_SIZE = 1024; // KB
     private static final int MB_SIZE = 1024 * 1024; // MB
@@ -77,8 +74,6 @@ public class Controller implements Initializable {
         fileChoiceTab21.setValue("32 KB");
         fileChoiceTab22.setValue("32 KB");
 
-
-        textBox.setText("Niset Text sa vad\nCum ar arata scrise!!");
         textBox.setEditable(false);
 
 //        rwChart.setLegendVisible(false);
@@ -89,11 +84,6 @@ public class Controller implements Initializable {
         rwChart2.setTitle("Write and Read test");
 
 
-        write.setName("WRITE");
-        read.setName("READ");
-
-        write2.setName("WRITE");
-        read2.setName("READ");
 
 
 
@@ -125,41 +115,12 @@ public class Controller implements Initializable {
 
 
 
-    public  void addToChart(double writeValue, double readValue, String index)
-    {
-
-        for(int j=0;j<5;j++){
-        write.getData().add(new XYChart.Data(index+j, writeValue+j));
-        read.getData().add(new XYChart.Data(index+j, readValue+j));
-       }
-
-
-        rwChart.getData().removeAll();
-        rwChart.setData(FXCollections.observableArrayList(write,read));
-
-
-    }
-
-    public  void addToChart2(double writeValue, double readValue, String index)
-    {
-
-        for(int j=0;j<5;j++){
-            write2.getData().add(new XYChart.Data(index+j, writeValue+j));
-            read2.getData().add(new XYChart.Data(index+j, readValue+j));
-        }
-
-
-        rwChart2.getData().removeAll();
-        rwChart2.setData(FXCollections.observableArrayList(write2,read2));
-
-
-    }
 
 
 
     public void startHandle(ActionEvent actionEvent) {
 
-        addToChart(12,21,"1");
+
         int[] b = new int[2];
         b[0] = bufferChoice1.getSelectionModel().getSelectedIndex();
         b[1] = bufferChoice2.getSelectionModel().getSelectedIndex();
@@ -176,7 +137,65 @@ public class Controller implements Initializable {
         HDDBench bench = new HDDBench();
         bench.initialize(b,f,options,indexDif);
         bench.run();
-        System.out.println(bench.getResult());
+
+
+
+        printToInterface1(bench.getResult(),b[0],b[1],f[0]);
+
+    }
+
+    private void printToInterface1(String resStr, int buffIndex1, int buffIndex2, int fileIndex)
+    {
+        String[] strArr = new String[30];
+        strArr= resStr.split(";");
+
+        Double[] write = new Double[30];
+        Double[] read = new Double[30];
+
+        int indexDif = buffIndex2 - buffIndex1+1;
+        String textBoxPrint = new String("");
+
+
+        int i ;
+        for (i=0; i <indexDif ; i++)
+        {
+            String a =StringManagement.makeReadAndWrite(strArr[i],bufferSizes[buffIndex1+i],fileSizes[fileIndex]);
+
+            textBoxPrint+=a;
+
+            String[] doubleAux = new String[2];
+            doubleAux = strArr[i].split(",");
+
+            write[i]=StringManagement.makeDoubleFromStr(doubleAux[0]);
+            read[i]= StringManagement.makeDoubleFromStr(doubleAux[1]);
+
+        }
+
+        textBoxPrint += StringManagement.makeTotalAverage(strArr[i]);
+        this.textBox.setText(textBoxPrint);
+
+
+        addToChart(write,read,buffIndex1,indexDif);
+    }
+
+    public  void addToChart(Double[] writeValue, Double[] readValue, int buffIndex1, int indexDif)
+    {
+
+        XYChart.Series<String,Double> write = new XYChart.Series<>();
+        XYChart.Series<String,Double> read = new XYChart.Series<>();
+        write.setName("WRITE");
+        read.setName("READ");
+
+        for(int j=0;j<indexDif;j++){
+            write.getData().add(new XYChart.Data(bufferSizes[buffIndex1+j], writeValue[j]));
+            read.getData().add(new XYChart.Data(bufferSizes[buffIndex1+j], readValue[j]));
+        }
+
+
+        rwChart.getData().clear();
+        rwChart.layout();
+        rwChart.getData().addAll(FXCollections.observableArrayList(write,read));
+
 
     }
 
@@ -184,7 +203,6 @@ public class Controller implements Initializable {
 
     public void startHandle2(ActionEvent actionEvent) {
 
-        addToChart2(12,21,"1");
 
         int[] b = new int[2];
         b[0] = bufferChoiceTab2.getSelectionModel().getSelectedIndex();
@@ -203,26 +221,70 @@ public class Controller implements Initializable {
         HDDBench bench = new HDDBench();
         bench.initialize(b,f,options,indexDif);
         bench.run();
-        System.out.println(bench.getResult());
+
+
+        printToInterface2(bench.getResult(),f[0],f[1],b[0]);
 
 
     }
 
 
-    private static void printTest1(String resStr, int buffIndex1, int buffIndex2, int fileIndex)
+
+
+    private void printToInterface2(String resStr, int fileIndex1, int fileIndex2, int buffIndex)
     {
         String[] strArr = new String[30];
         strArr= resStr.split(";");
-        int indexDif = buffIndex2 - buffIndex1+1;
+
+        Double[] write = new Double[30];
+        Double[] read = new Double[30];
+
+        int indexDif = fileIndex2 - fileIndex1+1;
+        String textBoxPrint = new String("");
+
 
         int i ;
         for (i=0; i <indexDif ; i++)
         {
-            
+            String a =StringManagement.makeReadAndWrite(strArr[i],bufferSizes[buffIndex],fileSizes[fileIndex1+i]);
+
+            textBoxPrint+=a;
+
+            String[] doubleAux = new String[2];
+            doubleAux = strArr[i].split(",");
+
+            write[i]=StringManagement.makeDoubleFromStr(doubleAux[0]);
+            read[i]= StringManagement.makeDoubleFromStr(doubleAux[1]);
+
         }
 
+        textBoxPrint += StringManagement.makeTotalAverage(strArr[i]);
+        this.textBox2.setText(textBoxPrint);
+
+
+        addToChart2(write,read,fileIndex1,indexDif);
     }
 
 
+
+    public  void addToChart2(Double[] writeValue, Double[] readValue,int fileIndex, int indexDif)
+    {
+
+        XYChart.Series<String,Double> write = new XYChart.Series<>();
+        XYChart.Series<String,Double> read = new XYChart.Series<>();
+        write.setName("WRITE");
+        read.setName("READ");
+
+        for(int j=0;j<indexDif;j++){
+            write.getData().add(new XYChart.Data(bufferSizes[fileIndex+j], writeValue[j]));
+            read.getData().add(new XYChart.Data(bufferSizes[fileIndex+j], readValue[j]));
+        }
+
+
+        rwChart2.getData().removeAll();
+        rwChart2.setData(FXCollections.observableArrayList(write,read));
+
+
+    }
 
 }
