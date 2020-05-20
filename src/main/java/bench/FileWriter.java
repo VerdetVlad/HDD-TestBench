@@ -97,11 +97,11 @@ public class FileWriter {
 
         while (counter < indexDiff) {
             int currentBufferSize = bufferSizes[minIndex + counter];
-            int repeat = 10;
+            int repeat = 3;
 
             while(repeat-- > 0) {
                 double timeNano = writeWithBufferSize(HDDBench.path.get(counter), currentBufferSize, fileSize);
-                timeAvg += timeNano /= SECinNANO;
+                timeAvg += timeNano / SECinNANO;
             }
 
             timeAvg /= 10;

@@ -105,7 +105,7 @@ public class FileReader {
 
             while(repeat-- > 0) {
                 double timeSec = readWithBufferSize(HDDBench.path.get(i), buffSize, fileSize);
-                timeAvg += timeSec /= SecInNano;
+                timeAvg += timeSec / SecInNano;
             }
 
             timeAvg/=10;
@@ -142,7 +142,7 @@ public class FileReader {
 
             while(repeat-- > 0) {
                 double timeSec = readWithBufferSize(HDDBench.path.get(i), buffSize, fileSize);
-                timeAvg += timeSec /= SecInNano;
+                timeAvg += timeSec / SecInNano;
             }
 
             timeAvg /= 10;

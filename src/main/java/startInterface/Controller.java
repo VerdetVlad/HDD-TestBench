@@ -58,9 +58,11 @@ public class Controller implements Initializable {
     private static final int KB_SIZE = 1024; // KB
     private static final int MB_SIZE = 1024 * 1024; // MB
     private static final String[] bufferSizes = new String[]{"1 KB","2 KB", "4 KB","8 KB","16 KB","32 KB",
-                                                            "64 KB","128 KB","256 KB","512 KB","1 MB", "2 MB", "4 MB"};
+                                                            "64 KB","128 KB","256 KB","512 KB",
+                                                            "1 MB", "2 MB", "4 MB","8 MB", "16 MB", "32 MB"};
     private static final String[] fileSizes = new String[]{"32 KB","64 KB","128 KB","256 KB","512 KB","1 MB",
-                                                            "2 MB","4 MB","8 MB","16 MB","32 MB","64 MB", "128 MB","256 MB"};
+                                                            "2 MB","4 MB","8 MB","16 MB","32 MB","64 MB",
+                                                            "128 MB","256 MB","512 MB"};
 
 
 
