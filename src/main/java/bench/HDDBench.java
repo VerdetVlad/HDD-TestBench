@@ -73,6 +73,9 @@ public class HDDBench implements IBenchmark {
             e.printStackTrace();
         }
 
+        if(options.get(1)) clean();
+
+
     }
 
 
@@ -98,6 +101,13 @@ public class HDDBench implements IBenchmark {
 
     //delete files
     public void clean() {
+        File index = new File(System.getProperty("user.dir") + "\\filesCreated");
+        String[]entries = index.list();
+        for(String s: entries){
+            File currentFile = new File(index.getPath(),s);
+            currentFile.delete();
+        }
+        index.delete();
 
     }
 

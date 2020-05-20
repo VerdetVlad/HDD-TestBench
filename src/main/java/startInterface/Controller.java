@@ -22,6 +22,8 @@ import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 import utilities.StringManagement;
 
+import javax.swing.*;
+
 
 public class Controller implements Initializable {
 
@@ -38,6 +40,7 @@ public class Controller implements Initializable {
     public CheckBox deleteCheckBox;
     public CheckBox deleteCheckBox2;
     public Button startButton;
+
 
 
     @FXML
@@ -86,7 +89,6 @@ public class Controller implements Initializable {
         rwChart2.setTitle("Write and Read results:");
 
         yAxis.setLabel("MB");
-
 
 
 
@@ -147,6 +149,21 @@ public class Controller implements Initializable {
         printToInterface1(bench.getResult(),b[0],b[1],f[0]);
 
     }
+
+
+
+//cancle
+/*{
+
+    sadadsadasd
+}    */
+
+
+
+
+
+
+
 
     private void printToInterface1(String resStr, int buffIndex1, int buffIndex2, int fileIndex)
     {
