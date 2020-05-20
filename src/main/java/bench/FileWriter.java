@@ -61,14 +61,14 @@ public class FileWriter {
 
         while (counter < indexDiff) {
             int currentBufferSize = ParametersSizes.bufferSizes[minIndex + counter];
-            int repeat = 10;
+            int repeat = ParametersSizes.repeatPerSize;
 
             while(repeat-- > 0) {
                 double timeNano = writeWithBufferSize(HDDBench.path.get(counter), currentBufferSize, fileSize);
                 timeAvg += timeNano / ParametersSizes.SecInNano;
             }
 
-            timeAvg /= 10;
+            timeAvg /= ParametersSizes.repeatPerSize;
             double crtScore = ((double)fileSize / ParametersSizes.MB_SIZE) / timeAvg;
             benchScore += crtScore;
             exportVal += String.format("%.2f", crtScore) + " MB/sec" + ";";
@@ -95,14 +95,14 @@ public class FileWriter {
 
         while (counter < indexDiff) {
             int currentFileSize = ParametersSizes.fileSizes[minIndex + counter];
-            int repeat = 10;
+            int repeat = ParametersSizes.repeatPerSize;
 
             while(repeat-- > 0) {
                 double timeNano = writeWithBufferSize(HDDBench.path.get(counter), bufferSize, currentFileSize);
                 timeAvg += timeNano / ParametersSizes.SecInNano;
             }
 
-            timeAvg /= 10;
+            timeAvg /= ParametersSizes.repeatPerSize;
             double crtScore = ((double)currentFileSize / ParametersSizes.MB_SIZE) / timeAvg;
             benchScore += crtScore;
             exportVal += (String.format("%.2f", crtScore) + " MB/sec" + ";");

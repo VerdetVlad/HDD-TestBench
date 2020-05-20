@@ -58,14 +58,15 @@ public class FileReader {
 
             int buffSize = ParametersSizes.bufferSizes[minIndex+i];
 
-            int repeat = 10;
+            int repeat = ParametersSizes.repeatPerSize;
 
             while(repeat-- > 0) {
                 double timeSec = readWithBufferSize(HDDBench.path.get(i), buffSize, fileSize);
                 timeAvg += timeSec / ParametersSizes.SecInNano;
             }
 
-            timeAvg/=10;
+            timeAvg/=ParametersSizes.repeatPerSize;
+
             double mbPerSec = ((double)fileSize/ParametersSizes.MB_SIZE) / timeAvg;
             benchScore += mbPerSec;
 
@@ -95,14 +96,14 @@ public class FileReader {
         for(i=0; i< indexDif; i++) {
 
             int fileSize = ParametersSizes.fileSizes[minIndex+i];
-            int repeat = 10;
+            int repeat = ParametersSizes.repeatPerSize;
 
             while(repeat-- > 0) {
                 double timeSec = readWithBufferSize(HDDBench.path.get(i), buffSize, fileSize);
                 timeAvg += timeSec / ParametersSizes.SecInNano;
             }
 
-            timeAvg /= 10;
+            timeAvg /= ParametersSizes.repeatPerSize;
 
             double mbPerSec = ((double)fileSize/ParametersSizes.MB_SIZE) / timeAvg;
             benchScore += mbPerSec;
