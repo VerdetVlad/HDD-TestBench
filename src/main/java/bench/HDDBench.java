@@ -124,6 +124,9 @@ public class HDDBench implements IBenchmark {
 
     //The data to be put in the text box
     public String getResult() {
+
+        if((writeOutput==null) || (readOutput==null)) return null;
+
         String[] writeArr = new String[30];
         String[] readArr = new String[30];
 
@@ -135,6 +138,7 @@ public class HDDBench implements IBenchmark {
         int i;
         for(i=0; i<writeArr.length; i++)
         {
+
             combinedString+= writeArr[i] + "," + readArr[i] + ";";
         }
 

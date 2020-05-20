@@ -119,6 +119,11 @@ public class Controller implements Initializable {
     }
 
 
+    public void cancelAction()
+    {
+
+        HDDBench.running=false;
+    }
 
 
 
@@ -144,21 +149,13 @@ public class Controller implements Initializable {
         bench.warmUp();
         bench.run();
 
+        String check = bench.getResult();
 
+        if(check == null) return;
 
-        printToInterface1(bench.getResult(),b[0],b[1],f[0]);
+        printToInterface1(check,b[0],b[1],f[0]);
 
     }
-
-
-
-//cancle
-/*{
-
-    sadadsadasd
-}    */
-
-
 
 
 
@@ -258,7 +255,12 @@ public class Controller implements Initializable {
         bench.run();
 
 
-        printToInterface2(bench.getResult(),f[0],f[1],b[0]);
+
+        String check = bench.getResult();
+
+        if(check == null) return;
+
+        printToInterface1(check,b[0],b[1],f[0]);
 
 
     }
