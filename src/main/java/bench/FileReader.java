@@ -60,9 +60,13 @@ public class FileReader {
 
             int repeat = ParametersSizes.repeatPerSize;
 
-            while(repeat-- > 0) {
+            while(repeat-- > 0 && HDDBench.running) {
                 double timeSec = readWithBufferSize(HDDBench.path.get(i), buffSize, fileSize);
                 timeAvg += timeSec / ParametersSizes.SecInNano;
+            }
+
+            if(!HDDBench.running) {
+                return null;
             }
 
             timeAvg/=ParametersSizes.repeatPerSize;
@@ -109,9 +113,13 @@ public class FileReader {
             int fileSize = ParametersSizes.fileSizes[minIndex+i];
             int repeat = ParametersSizes.repeatPerSize;
 
-            while(repeat-- > 0) {
+            while(repeat-- > 0 && HDDBench.running) {
                 double timeSec = readWithBufferSize(HDDBench.path.get(i), buffSize, fileSize);
                 timeAvg += timeSec / ParametersSizes.SecInNano;
+            }
+
+            if(!HDDBench.running) {
+                return null;
             }
 
             timeAvg /= ParametersSizes.repeatPerSize;
