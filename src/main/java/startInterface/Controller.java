@@ -83,6 +83,7 @@ public class Controller implements Initializable {
         rwChart2.setAnimated(false);
         rwChart2.setTitle("Write and Read results:");
 
+        yAxis.setLabel("MB");
 
 
 

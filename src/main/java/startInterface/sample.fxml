@@ -40,7 +40,7 @@
                            <bottom>
                               <HBox prefHeight="300.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <BarChart fx:id="rwChart" prefHeight="440.0" prefWidth="600.0" style="-fx-background-color: #34495E; -fx-category-gap: 8; -fx-bar-gap: 2; -fx-border-color: Black;">
+                                    <BarChart fx:id="rwChart" prefHeight="300.0" prefWidth="760.0" style="-fx-background-color: #34495E; -fx-category-gap: 8; -fx-bar-gap: 2; -fx-border-color: Black;">
                                        <xAxis>
                                           <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" fx:id="xAxis">
                                              <tickLabelFont>
@@ -277,7 +277,7 @@
                            <bottom>
                               <HBox prefHeight="300.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <BarChart fx:id="rwChart2" prefHeight="440.0" prefWidth="600.0" style="-fx-border-color: Black; -fx-category-gap: 8; -fx-bar-gap: 2; -fx-background-color: #34495E;">
+                                    <BarChart fx:id="rwChart2" prefHeight="440.0" prefWidth="760.0" style="-fx-border-color: Black; -fx-category-gap: 8; -fx-bar-gap: 2; -fx-background-color: #34495E;">
                                        <xAxis>
                                           <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" fx:id="xAxis2">
                                              <tickLabelFont>
