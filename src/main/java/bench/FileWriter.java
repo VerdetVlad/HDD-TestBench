@@ -21,7 +21,9 @@ public class FileWriter {
             128 * KB_SIZE,
             256 * KB_SIZE,
             512 * KB_SIZE,
-            1 * MB_SIZE
+            1 * MB_SIZE,
+            2 * MB_SIZE,
+            4 * MB_SIZE
     };
     private static final int[] fileSizes = {
             32 * KB_SIZE,
@@ -35,7 +37,9 @@ public class FileWriter {
             8 * MB_SIZE,
             16 * MB_SIZE,
             32 * MB_SIZE,
-            64 * MB_SIZE
+            64 * MB_SIZE,
+            128 * MB_SIZE,
+            256 * MB_SIZE
     };
     private static Timer timer = new Timer();
 
@@ -47,7 +51,7 @@ public class FileWriter {
      * Writes a file with random binary content on the disk, using a given file
      * path and buffer size.
      */
-    private static double writeWithBufferSize(String fileName, int myBufferSize, int fileSize) throws IOException
+    public static double writeWithBufferSize(String fileName, int myBufferSize, int fileSize) throws IOException
     {
 
         File pathMaker = new File(System.getProperty("user.dir") + "\\filesCreated");

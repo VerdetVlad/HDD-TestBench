@@ -82,7 +82,17 @@ public class HDDBench implements IBenchmark {
 
     //run for smallest value
     public void warmUp() {
-
+        for(int i = 0;i<10;i++)
+        {
+            try {
+                FileWriter.writeWithBufferSize("WarmUp_" + i, 1024, 16 * 1024);
+                FileReader.readWithBufferSize("WarmUp_" + i, 1024, 16 * 1024);
+            }
+            catch (Exception e)
+            {
+                //stop program
+            }
+        }
     }
 
 
