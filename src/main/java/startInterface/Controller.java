@@ -78,10 +78,10 @@ public class Controller implements Initializable {
 
 //        rwChart.setLegendVisible(false);
         rwChart.setAnimated(false);
-        rwChart.setTitle("Write and Read test");
+        rwChart.setTitle("Write and Read results:");
 
         rwChart2.setAnimated(false);
-        rwChart2.setTitle("Write and Read test");
+        rwChart2.setTitle("Write and Read results:");
 
 
 
@@ -171,12 +171,22 @@ public class Controller implements Initializable {
 
         }
 
-        textBoxPrint += StringManagement.makeTotalAverage(strArr[i]);
+        String a = StringManagement.makeTotalAverage(strArr[i]);
+        textBoxPrint+=a;
         this.textBox.setText(textBoxPrint);
+
+        String[] doubleAux = new String[2];
+        doubleAux = strArr[i].split(",");
+        write[i]=StringManagement.makeDoubleFromStr(doubleAux[0]);
+        read[i]= StringManagement.makeDoubleFromStr(doubleAux[1]);
 
 
         addToChart(write,read,buffIndex1,indexDif);
     }
+
+
+
+
 
     public  void addToChart(Double[] writeValue, Double[] readValue, int buffIndex1, int indexDif)
     {
@@ -190,6 +200,9 @@ public class Controller implements Initializable {
             write.getData().add(new XYChart.Data(bufferSizes[buffIndex1+j], writeValue[j]));
             read.getData().add(new XYChart.Data(bufferSizes[buffIndex1+j], readValue[j]));
         }
+
+        write.getData().add(new XYChart.Data("AVR", writeValue[indexDif]));
+        read.getData().add(new XYChart.Data("AVR", readValue[indexDif]));
 
 
         rwChart.getData().clear();
@@ -258,8 +271,15 @@ public class Controller implements Initializable {
 
         }
 
-        textBoxPrint += StringManagement.makeTotalAverage(strArr[i]);
+        String a = StringManagement.makeTotalAverage(strArr[i]);
+        textBoxPrint+=a;
         this.textBox2.setText(textBoxPrint);
+
+        String[] doubleAux = new String[2];
+        doubleAux = strArr[i].split(",");
+
+        write[i]=StringManagement.makeDoubleFromStr(doubleAux[0]);
+        read[i]= StringManagement.makeDoubleFromStr(doubleAux[1]);
 
 
         addToChart2(write,read,fileIndex1,indexDif);
@@ -276,10 +296,13 @@ public class Controller implements Initializable {
         read.setName("READ");
 
         for(int j=0;j<indexDif;j++){
-            write.getData().add(new XYChart.Data(bufferSizes[fileIndex+j], writeValue[j]));
-            read.getData().add(new XYChart.Data(bufferSizes[fileIndex+j], readValue[j]));
+            write.getData().add(new XYChart.Data(fileSizes[fileIndex+j], writeValue[j]));
+            read.getData().add(new XYChart.Data(fileSizes[fileIndex+j], readValue[j]));
         }
 
+
+        write.getData().add(new XYChart.Data("AVR", writeValue[indexDif]));
+        read.getData().add(new XYChart.Data("AVR", readValue[indexDif]));
 
         rwChart2.getData().removeAll();
         rwChart2.setData(FXCollections.observableArrayList(write,read));

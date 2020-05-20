@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.FXCollections?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: Gray;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="startInterface.Controller">
+<VBox depthTest="DISABLE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: #283747;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="startInterface.Controller">
    <children>
       <MenuBar>
         <menus>
@@ -30,7 +30,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="661.0" prefWidth="802.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="850.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
             <Tab text="FixeFile">
                <content>
@@ -40,12 +40,18 @@
                            <bottom>
                               <HBox prefHeight="300.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <BarChart fx:id="rwChart" prefHeight="440.0" prefWidth="600.0" style="-fx-border-color: #2029ff; -fx-category-gap:5; -fx-bar-gap: 2;">
+                                    <BarChart fx:id="rwChart" prefHeight="440.0" prefWidth="600.0" style="-fx-background-color: #34495E; -fx-category-gap: 8; -fx-bar-gap: 2; -fx-border-color: Black;">
                                        <xAxis>
-                                          <CategoryAxis side="BOTTOM" fx:id="xAxis" />
+                                          <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" fx:id="xAxis">
+                                             <tickLabelFont>
+                                                <Font name="System Bold" size="11.0" />
+                                             </tickLabelFont></CategoryAxis>
                                        </xAxis>
                                        <yAxis>
-                                          <NumberAxis fx:id="yAxis" side="LEFT" />
+                                          <NumberAxis fx:id="yAxis" side="LEFT" tickLabelFill="WHITE">
+                                             <tickLabelFont>
+                                                <Font name="System Bold" size="11.0" />
+                                             </tickLabelFont></NumberAxis>
                                        </yAxis>
                                     </BarChart>
                                     <TextArea fx:id="textBox" prefHeight="400.0" prefWidth="400.0" />
@@ -58,12 +64,12 @@
                            <center>
                               <GridPane alignment="CENTER" maxHeight="-Infinity" prefHeight="157.0" prefWidth="535.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <Label alignment="CENTER_RIGHT" text="        Buffer Size:" GridPane.rowIndex="1">
+                                    <Label alignment="CENTER_RIGHT" text="        Buffer Size:" textFill="WHITE" GridPane.rowIndex="1">
                                        <font>
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <Label text="        File Size:" GridPane.rowIndex="2">
+                                    <Label text="        File Size:" textFill="WHITE" GridPane.rowIndex="2">
                                        <font>
                                           <Font name="System Bold" size="16.0" />
                                        </font>
@@ -73,7 +79,7 @@
                                           <Font name="Bookman Old Style Bold" size="16.0" />
                                        </font>
                                     </Button>
-                                    <Label text="to" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                    <Label text="to" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                        <font>
                                           <Font name="System Bold" size="14.0" />
                                        </font>
@@ -91,6 +97,7 @@
                                              <String fx:value="128 KB" />
                                              <String fx:value="256 KB" />
                                              <String fx:value="512 KB" />
+                                             <String fx:value="1 MB" />
                                           </FXCollections>
                                        </items>
                                     </ChoiceBox>
@@ -107,6 +114,7 @@
                                              <String fx:value="128 KB" />
                                              <String fx:value="256 KB" />
                                              <String fx:value="512 KB" />
+                                             <String fx:value="1 MB" />
                                           </FXCollections>
                                        </items>
                                     </ChoiceBox>
@@ -128,7 +136,10 @@
                                           </FXCollections>
                                        </items>
                                     </ChoiceBox>
-                                    <CheckBox fx:id="deleteCheckBox" mnemonicParsing="false" text="Delete Files After?" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                                    <CheckBox fx:id="deleteCheckBox" mnemonicParsing="false" text="Delete Files After?" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font></CheckBox>
                                  </children>
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="263.0" minWidth="10.0" prefWidth="184.0" />
@@ -164,12 +175,12 @@
                            <center>
                               <GridPane alignment="CENTER" maxHeight="-Infinity" prefHeight="157.0" prefWidth="535.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <Label alignment="CENTER_RIGHT" text="        Buffer Size:" GridPane.rowIndex="1">
+                                    <Label alignment="CENTER_RIGHT" text="        Buffer Size:" textFill="WHITE" GridPane.rowIndex="1">
                                        <font>
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <Label text="        File Size:" GridPane.rowIndex="2">
+                                    <Label text="        File Size:" textFill="WHITE" GridPane.rowIndex="2">
                                        <font>
                                           <Font name="System Bold" size="16.0" />
                                        </font>
@@ -179,7 +190,7 @@
                                           <Font name="Bookman Old Style Bold" size="16.0" />
                                        </font>
                                     </Button>
-                                    <Label text="to" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                    <Label text="to" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                        <font>
                                           <Font name="System Bold" size="14.0" />
                                        </font>
@@ -197,6 +208,7 @@
                                              <String fx:value="128 KB" />
                                              <String fx:value="256 KB" />
                                              <String fx:value="512 KB" />
+                                             <String fx:value="1 MB" />
                                           </FXCollections>
                                        </items>
                                     </ChoiceBox>
@@ -236,7 +248,10 @@
                                           </FXCollections>
                                        </items>
                                     </ChoiceBox>
-                                    <CheckBox fx:id="deleteCheckBox2" mnemonicParsing="false" text="Delete Files After?" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                                    <CheckBox fx:id="deleteCheckBox2" mnemonicParsing="false" text="Delete Files After?" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font></CheckBox>
                                  </children>
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="263.0" minWidth="10.0" prefWidth="184.0" />
@@ -262,12 +277,18 @@
                            <bottom>
                               <HBox prefHeight="300.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <BarChart fx:id="rwChart2" prefHeight="440.0" prefWidth="600.0" style="-fx-border-color: #2029ff; -fx-category-gap:5; -fx-bar-gap: 2;">
+                                    <BarChart fx:id="rwChart2" prefHeight="440.0" prefWidth="600.0" style="-fx-border-color: Black; -fx-category-gap: 8; -fx-bar-gap: 2; -fx-background-color: #34495E;">
                                        <xAxis>
-                                          <CategoryAxis side="BOTTOM" fx:id="xAxis2" />
+                                          <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" fx:id="xAxis2">
+                                             <tickLabelFont>
+                                                <Font name="System Bold" size="11.0" />
+                                             </tickLabelFont></CategoryAxis>
                                        </xAxis>
                                        <yAxis>
-                                          <NumberAxis fx:id="yAxis2" side="LEFT" />
+                                          <NumberAxis fx:id="yAxis2" side="LEFT" tickLabelFill="WHITE">
+                                             <tickLabelFont>
+                                                <Font name="System Bold" size="11.0" />
+                                             </tickLabelFont></NumberAxis>
                                        </yAxis>
                                     </BarChart>
                                     <TextArea fx:id="textBox2" prefHeight="400.0" prefWidth="400.0" />
@@ -286,7 +307,10 @@
          <VBox.margin>
             <Insets />
          </VBox.margin>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </TabPane>
-      <AnchorPane prefHeight="57.0" prefWidth="800.0" />
+      <AnchorPane prefHeight="57.0" prefWidth="800.0" style="-fx-background-color: #17202A;" />
    </children>
 </VBox>
