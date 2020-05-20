@@ -80,17 +80,14 @@ public class FileReader {
 
 
 
-    public static String streamReadFixedSize(
-                                     int minIndex, int maxIndex,
-                                     int fileIndex) throws IOException {
-
-
+    public static String streamReadFixedSize(int minIndex, int maxIndex, int fileIndex) throws IOException {
         String result = new String("");
 
         int fileSize = fileSizes[fileIndex];
 
 
         double benchScore = 0;
+        double timeAvg = 0.0;
         int indexDif = maxIndex - minIndex + 1;
         int i=0;
 
@@ -98,10 +95,15 @@ public class FileReader {
 
             int buffSize = bufferSizes[minIndex+i];
 
-            double timeSec = readWithBufferSize(HDDBench.path.get(i),buffSize,fileSize);
-            timeSec/=SecInNano;
+            int repeat = 10;
 
-            double mbPerSec = ((double)fileSize/MB_SIZE) / timeSec;
+            while(repeat-- > 0) {
+                double timeSec = readWithBufferSize(HDDBench.path.get(i), buffSize, fileSize);
+                timeAvg += timeSec /= SecInNano;
+            }
+
+            timeAvg/=10;
+            double mbPerSec = ((double)fileSize/MB_SIZE) / timeAvg;
             benchScore += mbPerSec;
 
             result +=  String.format("%.2f",mbPerSec) + " MB/sec;";
@@ -117,26 +119,29 @@ public class FileReader {
 
 
 
-    public static String streamReadFixedBuffer(
-                                              int minIndex, int maxIndex,
-                                              int buffIndex) throws IOException {
-
-
+    public static String streamReadFixedBuffer(int minIndex, int maxIndex, int buffIndex) throws IOException {
         String result = new String("");
 
         int buffSize = bufferSizes[buffIndex];
 
         double benchScore = 0;
+        double timeAvg = 0.0;
         int indexDif = maxIndex - minIndex + 1;
         int i=0;
 
         for(i=0; i< indexDif; i++) {
 
             int fileSize = fileSizes[minIndex+i];
+            int repeat = 10;
 
-            double timeSec = readWithBufferSize(HDDBench.path.get(i),buffSize,fileSize);
-            timeSec/=SecInNano;
-            double mbPerSec = ((double)fileSize/MB_SIZE) / timeSec;
+            while(repeat-- > 0) {
+                double timeSec = readWithBufferSize(HDDBench.path.get(i), buffSize, fileSize);
+                timeAvg += timeSec /= SecInNano;
+            }
+
+            timeAvg /= 10;
+
+            double mbPerSec = ((double)fileSize/MB_SIZE) / timeAvg;
             benchScore += mbPerSec;
 
             result +=  String.format("%.2f",mbPerSec) + " MB/S;";

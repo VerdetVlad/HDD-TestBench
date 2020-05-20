@@ -88,13 +88,20 @@ public class FileWriter {
         int indexDiff = (maxIndex - minIndex + 1);
         int counter = 0;
         double benchScore = 0;
+        double timeAvg = 0.0;
         int fileSize = fileSizes[fileIndex];
 
         while (counter < indexDiff) {
             int currentBufferSize = bufferSizes[minIndex + counter];
-            double timeNano = writeWithBufferSize(HDDBench.path.get(counter), currentBufferSize, fileSize);
-            timeNano/=SECinNANO;
-            double crtScore = ((double)fileSize / MB_SIZE) / timeNano;
+            int repeat = 10;
+
+            while(repeat-- > 0) {
+                double timeNano = writeWithBufferSize(HDDBench.path.get(counter), currentBufferSize, fileSize);
+                timeAvg += timeNano /= SECinNANO;
+            }
+
+            timeAvg /= 10;
+            double crtScore = ((double)fileSize / MB_SIZE) / timeAvg;
             benchScore += crtScore;
             exportVal += String.format("%.2f", crtScore) + " MB/sec" + ";";
 
@@ -115,13 +122,20 @@ public class FileWriter {
         int indexDiff = (maxIndex - minIndex + 1);
         int counter = 0;
         double benchScore = 0;
+        double timeAvg = 0.0;
         int bufferSize = bufferSizes[bufferIndex];
 
         while (counter < indexDiff) {
             int currentFileSize = fileSizes[minIndex + counter];
-            double timeNano = writeWithBufferSize(HDDBench.path.get(counter), bufferSize, currentFileSize);
-            timeNano/=SECinNANO;
-            double crtScore = ((double)currentFileSize / MB_SIZE) / timeNano;
+            int repeat = 10;
+
+            while(repeat-- > 0) {
+                double timeNano = writeWithBufferSize(HDDBench.path.get(counter), bufferSize, currentFileSize);
+                timeAvg += timeNano/SECinNANO;
+            }
+
+            timeAvg /= 10;
+            double crtScore = ((double)currentFileSize / MB_SIZE) / timeAvg;
             benchScore += crtScore;
             exportVal += (String.format("%.2f", crtScore) + " MB/sec" + ";");
 
