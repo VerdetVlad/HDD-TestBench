@@ -71,14 +71,24 @@ public class FileWriter {
             timeAvg /= ParametersSizes.repeatPerSize;
             double crtScore = ((double)fileSize / ParametersSizes.MB_SIZE) / timeAvg;
             benchScore += crtScore;
-            exportVal += String.format("%.2f", crtScore) + " MB/sec" + ";";
+            if(crtScore >= 1024) {
+                exportVal += (String.format("%.2f", crtScore / 1024.0) + " GB/sec" + ";");
+            }
+            else {
+                exportVal += (String.format("%.2f", crtScore) + " MB/sec" + ";");
+            }
 
             counter++;
         }
 
         benchScore /= indexDiff;
 
-        exportVal += (String.format("%.2f", benchScore) + " MB/sec");
+        if(benchScore >= 1024) {
+            exportVal += (String.format("%.2f", benchScore / 1024.0) + " GB/sec");
+        }
+        else {
+            exportVal += (String.format("%.2f", benchScore) + " MB/sec");
+        }
 
         return exportVal;
     }
@@ -105,14 +115,24 @@ public class FileWriter {
             timeAvg /= ParametersSizes.repeatPerSize;
             double crtScore = ((double)currentFileSize / ParametersSizes.MB_SIZE) / timeAvg;
             benchScore += crtScore;
-            exportVal += (String.format("%.2f", crtScore) + " MB/sec" + ";");
+            if(crtScore >= 1024) {
+                exportVal += (String.format("%.2f", crtScore / 1024.0) + " GB/sec" + ";");
+            }
+            else {
+                exportVal += (String.format("%.2f", crtScore) + " MB/sec" + ";");
+            }
 
             counter++;
         }
 
         benchScore /= indexDiff;
 
-        exportVal += (String.format("%.2f", benchScore) + " MB/sec");
+        if(benchScore >= 1024) {
+            exportVal += (String.format("%.2f", benchScore / 1024.0) + " GB/sec");
+        }
+        else {
+            exportVal += (String.format("%.2f", benchScore) + " MB/sec");
+        }
 
         return exportVal;
     }

@@ -70,11 +70,22 @@ public class FileReader {
             double mbPerSec = ((double)fileSize/ParametersSizes.MB_SIZE) / timeAvg;
             benchScore += mbPerSec;
 
-            result +=  String.format("%.2f",mbPerSec) + " MB/sec;";
+            if(mbPerSec >= 1024) {
+                result +=  String.format("%.2f",mbPerSec / 1024.0) + " GB/sec;";
+            }
+            else {
+                result +=  String.format("%.2f",mbPerSec) + " MB/sec;";
+            }
         }
 
         benchScore = benchScore/indexDif;
-        result+=String.format("%.2f",benchScore)+ " MB/sec";
+
+        if(benchScore >= 1024) {
+            result+=String.format("%.2f",benchScore / 1024.0)+ " GB/sec";
+        }
+        else {
+            result+=String.format("%.2f",benchScore)+ " MB/sec";
+        }
 
 
         return result;
@@ -108,11 +119,21 @@ public class FileReader {
             double mbPerSec = ((double)fileSize/ParametersSizes.MB_SIZE) / timeAvg;
             benchScore += mbPerSec;
 
-            result +=  String.format("%.2f",mbPerSec) + " MB/S;";
+            if(mbPerSec >= 1024) {
+                result +=  String.format("%.2f",mbPerSec / 1024.0) + " GB/sec;";
+            }
+            else {
+                result +=  String.format("%.2f",mbPerSec) + " MB/sec;";
+            }
         }
 
         benchScore = benchScore/indexDif;
-        result+=String.format("%.2f",benchScore) + " MB/S";
+        if(benchScore >= 1024) {
+            result+=String.format("%.2f",benchScore / 1024.0)+ " GB/sec";
+        }
+        else {
+            result+=String.format("%.2f",benchScore)+ " MB/sec";
+        }
 
 
         return result;

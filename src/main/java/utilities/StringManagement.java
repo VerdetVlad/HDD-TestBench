@@ -6,7 +6,12 @@ public class StringManagement {
     {
         String[] a = new String[2];
         a= s.split(" ");
-        return Double.parseDouble(a[0]);
+        if(a[1].equals("GB/sec")) {
+            return Double.parseDouble(a[0]) * 1024.0;
+        }
+        else {
+            return Double.parseDouble(a[0]);
+        }
     }
 
     public static String makeReadAndWrite(String s, String bufferSize, String fileSize)
