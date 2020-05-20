@@ -20,6 +20,7 @@ import java.net.URL;
 
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
+import utilities.StringManagement;
 
 
 public class Controller implements Initializable {
@@ -56,6 +57,14 @@ public class Controller implements Initializable {
 
     private   XYChart.Series<String,Double> write2 = new XYChart.Series<>();
     private   XYChart.Series<String,Double> read2 = new XYChart.Series<>();
+
+    private static final int KB_SIZE = 1024; // KB
+    private static final int MB_SIZE = 1024 * 1024; // MB
+    private static final String[] bufferSizes = new String[]{"1 KB","2 KB", "4 KB","8 KB","16 KB","32 KB",
+                                                            "64 KB","128 KB","256 KB","512 KB","1 MB"};
+    private static final String[] fileSizes = new String[]{"32 KB","64 KB","128 KB","256 KB","512 KB","1 MB",
+                                                            "2 MB","4 MB","8 MB","16 MB","32 MB","64 MB"};
+
 
 
     @Override
@@ -100,16 +109,16 @@ public class Controller implements Initializable {
         int f = fileChoice.getSelectionModel().getSelectedIndex();
 
 
-        if(b1 > b2) bufferChoice2.setValue(str[b1]);
-        if((b2 - 5) > f) fileChoice.setValue(str[b2]);
+        if(b1 > b2) bufferChoice2.setValue(bufferSizes[b1]);
+        if((b2 - 5) > f) fileChoice.setValue(bufferSizes[b2]);
 
         int bTab2 = bufferChoiceTab2.getSelectionModel().getSelectedIndex();
         int fTab1 = fileChoiceTab21.getSelectionModel().getSelectedIndex();
         int fTab2 = fileChoiceTab22.getSelectionModel().getSelectedIndex();
 
 
-        if((bTab2 - 5) > fTab1) fileChoiceTab21.setValue(str[bTab2]);
-        if(fTab1 > fTab2) fileChoiceTab22.setValue(str[fTab1+5]);
+        if((bTab2 - 5) > fTab1) fileChoiceTab21.setValue(bufferSizes[bTab2]);
+        if(fTab1 > fTab2) fileChoiceTab22.setValue(fileSizes[fTab1]);
 
 
     }
@@ -158,7 +167,7 @@ public class Controller implements Initializable {
         int[] f = new int[2];
         f[0] = fileChoice.getSelectionModel().getSelectedIndex();
 
-        int indexDif = b[1] - b[0];
+        int indexDif = b[1] - b[0]+1;
 
         boolean options[] = new boolean[2];
         options[0]=false;
@@ -166,6 +175,8 @@ public class Controller implements Initializable {
 
         HDDBench bench = new HDDBench();
         bench.initialize(b,f,options,indexDif);
+        bench.run();
+        System.out.println(bench.getResult());
 
     }
 
@@ -183,7 +194,7 @@ public class Controller implements Initializable {
         f[0] = fileChoiceTab21.getSelectionModel().getSelectedIndex();
         f[1] = fileChoiceTab22.getSelectionModel().getSelectedIndex();
 
-        int indexDif = f[0] - f[1];
+        int indexDif = f[1] - f[0]+1;
 
         boolean options[] = new boolean[2];
         options[0]=true;
@@ -191,18 +202,26 @@ public class Controller implements Initializable {
 
         HDDBench bench = new HDDBench();
         bench.initialize(b,f,options,indexDif);
-
-
+        bench.run();
+        System.out.println(bench.getResult());
 
 
     }
 
 
+    private static void printTest1(String resStr, int buffIndex1, int buffIndex2, int fileIndex)
+    {
+        String[] strArr = new String[30];
+        strArr= resStr.split(";");
+        int indexDif = buffIndex2 - buffIndex1+1;
 
+        int i ;
+        for (i=0; i <indexDif ; i++)
+        {
+            
+        }
 
-
-
-
+    }
 
 
 

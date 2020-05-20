@@ -31,16 +31,15 @@ public class FileWriter {
             512 * KB_SIZE,
             1 * MB_SIZE,
             2 * MB_SIZE,
-            4 * MB_SIZE
+            4 * MB_SIZE,
+            8 * MB_SIZE,
+            16 * MB_SIZE,
+            32 * MB_SIZE,
+            64 * MB_SIZE
     };
     private static Timer timer = new Timer();
 
 
-
-    public static void main(String[] args) {
-
-        System.out.println(3^4);
-    }
 
 
 
@@ -51,7 +50,11 @@ public class FileWriter {
     private static double writeWithBufferSize(String fileName, int myBufferSize, int fileSize) throws IOException
     {
 
-        OutputStream folderPath = new FileOutputStream(System.getProperty("user.dir") + "\\" + fileName);
+        File pathMaker = new File(System.getProperty("user.dir") + "\\filesCreated");
+        pathMaker.mkdirs();
+
+        OutputStream folderPath = new FileOutputStream(System.getProperty("user.dir") + "\\filesCreated\\" + fileName);
+
 
         // create stream writer with given buffer size
         final BufferedOutputStream outputStream = new BufferedOutputStream(folderPath, myBufferSize);
@@ -75,6 +78,7 @@ public class FileWriter {
             i++;
         }
 
+        outputStream.close();
         return timer.stop();
     }
 
@@ -104,16 +108,7 @@ public class FileWriter {
         return exportVal;
     }
 
-    /**
-     * Writes files on disk using a variable file size and fixed buffer size.
-     *
-     * @param minIndex
-     *            - start file size index
-     * @param maxIndex
-     *            - end file size index
-     * @param bufferSize
-     *            - size of the buffer used for writing in the disk
-     */
+
 
     public static String streamWriteFixedBuffer(int minIndex, int maxIndex, int bufferIndex) throws IOException {
         String exportVal = "";

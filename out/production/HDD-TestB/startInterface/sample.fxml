@@ -121,6 +121,10 @@
                                              <String fx:value="1 MB" />
                                              <String fx:value="2 MB" />
                                              <String fx:value="4 MB" />
+                                             <String fx:value="8 MB" />
+                                             <String fx:value="16 MB" />
+                                             <String fx:value="32 MB" />
+                                             <String fx:value="64 MB" />
                                           </FXCollections>
                                        </items>
                                     </ChoiceBox>
@@ -207,6 +211,10 @@
                                              <String fx:value="1 MB" />
                                              <String fx:value="2 MB" />
                                              <String fx:value="4 MB" />
+                                             <String fx:value="8 MB" />
+                                             <String fx:value="16 MB" />
+                                             <String fx:value="32 MB" />
+                                             <String fx:value="64 MB" />
                                           </FXCollections>
                                        </items>
                                     </ChoiceBox>
@@ -221,6 +229,10 @@
                                              <String fx:value="1 MB" />
                                              <String fx:value="2 MB" />
                                              <String fx:value="4 MB" />
+                                             <String fx:value="8 MB" />
+                                             <String fx:value="16 MB" />
+                                             <String fx:value="32 MB" />
+                                             <String fx:value="64 MB" />
                                           </FXCollections>
                                        </items>
                                     </ChoiceBox>

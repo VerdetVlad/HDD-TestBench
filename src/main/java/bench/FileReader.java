@@ -18,11 +18,30 @@ public class FileReader {
     private static final int SecInNano = (int)Math.pow(10,9);
 
 
-    private static final int[] bufferSizes={ 1*KB_SIZE,  2*KB_SIZE,  4*KB_SIZE,  8*KB_SIZE,  16*KB_SIZE, 32*KB_SIZE,
-                                             64*KB_SIZE, 128*KB_SIZE, 256*KB_SIZE, 512*KB_SIZE, 1*MB_SIZE};
+    private static final int[] bufferSizes={ 1*KB_SIZE,
+            2*KB_SIZE,
+            4*KB_SIZE,
+            8*KB_SIZE,
+            16*KB_SIZE,
+            32*KB_SIZE,
+            64*KB_SIZE,
+            128*KB_SIZE,
+            256*KB_SIZE,
+            512*KB_SIZE,
+            1*MB_SIZE};
 
-    private static final int[] fileSizes = {32*KB_SIZE, 64*KB_SIZE, 128*KB_SIZE, 256*KB_SIZE, 512*KB_SIZE, 1*MB_SIZE,
-                                            2*MB_SIZE, 4*MB_SIZE};
+    private static final int[] fileSizes = {32*KB_SIZE,
+            64*KB_SIZE,
+            128*KB_SIZE,
+            256*KB_SIZE,
+            512*KB_SIZE,
+            1*MB_SIZE,
+            2*MB_SIZE,
+            4*MB_SIZE,
+            8 * MB_SIZE,
+            16 * MB_SIZE,
+            32 * MB_SIZE,
+            64 * MB_SIZE };
 
     private static Timer timer = new Timer();
 
@@ -34,7 +53,7 @@ public class FileReader {
     private static double readWithBufferSize(String fileName, int myBufferSize,
                                      int fileSize) throws IOException
     {
-        InputStream folderPath = new FileInputStream(System.getProperty("user.dir") + "\\" + fileName);
+        InputStream folderPath = new FileInputStream(System.getProperty("user.dir") + "\\filesCreated\\" + fileName);
 
 
         // create stream writer with given buffer size
@@ -52,6 +71,7 @@ public class FileReader {
             i++;
         }
 
+        inputStream.close();
         return timer.stop();
 
     }
@@ -84,11 +104,11 @@ public class FileReader {
             double mbPerSec = ((double)fileSize/MB_SIZE) / timeSec;
             benchScore += mbPerSec;
 
-            result +=  String.format("%.2f",mbPerSec) + " MB/S;";
+            result +=  String.format("%.2f",mbPerSec) + " MB/sec;";
         }
 
         benchScore = benchScore/indexDif;
-        result+=String.format("%.2f",benchScore)+ " MB/S";
+        result+=String.format("%.2f",benchScore)+ " MB/sec";
 
 
         return result;
