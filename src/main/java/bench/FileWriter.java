@@ -2,45 +2,9 @@ package bench;
 
 import java.io.*;
 import java.util.Random;
-
 import timer.Timer;
 
 public class FileWriter {
-
-    private static final int KB_SIZE = 1024; // KB
-    private static final int MB_SIZE = 1024 * 1024; // MB
-    private static final int SECinNANO = (int) Math.pow(10, 9);
-    private static final int[] bufferSizes = {
-            1 * KB_SIZE,
-            2 * KB_SIZE,
-            4 * KB_SIZE,
-            8 * KB_SIZE,
-            16 * KB_SIZE,
-            32 * KB_SIZE,
-            64 * KB_SIZE,
-            128 * KB_SIZE,
-            256 * KB_SIZE,
-            512 * KB_SIZE,
-            1 * MB_SIZE,
-            2 * MB_SIZE,
-            4 * MB_SIZE
-    };
-    private static final int[] fileSizes = {
-            32 * KB_SIZE,
-            64 * KB_SIZE,
-            128 * KB_SIZE,
-            256 * KB_SIZE,
-            512 * KB_SIZE,
-            1 * MB_SIZE,
-            2 * MB_SIZE,
-            4 * MB_SIZE,
-            8 * MB_SIZE,
-            16 * MB_SIZE,
-            32 * MB_SIZE,
-            64 * MB_SIZE,
-            128 * MB_SIZE,
-            256 * MB_SIZE
-    };
     private static Timer timer = new Timer();
 
 
@@ -93,19 +57,19 @@ public class FileWriter {
         int counter = 0;
         double benchScore = 0;
         double timeAvg = 0.0;
-        int fileSize = fileSizes[fileIndex];
+        int fileSize = ParametersSizes.fileSizes[fileIndex];
 
         while (counter < indexDiff) {
-            int currentBufferSize = bufferSizes[minIndex + counter];
+            int currentBufferSize = ParametersSizes.bufferSizes[minIndex + counter];
             int repeat = 10;
 
             while(repeat-- > 0) {
                 double timeNano = writeWithBufferSize(HDDBench.path.get(counter), currentBufferSize, fileSize);
-                timeAvg += timeNano /= SECinNANO;
+                timeAvg += timeNano / ParametersSizes.SecInNano;
             }
 
             timeAvg /= 10;
-            double crtScore = ((double)fileSize / MB_SIZE) / timeAvg;
+            double crtScore = ((double)fileSize / ParametersSizes.MB_SIZE) / timeAvg;
             benchScore += crtScore;
             exportVal += String.format("%.2f", crtScore) + " MB/sec" + ";";
 
@@ -127,19 +91,19 @@ public class FileWriter {
         int counter = 0;
         double benchScore = 0;
         double timeAvg = 0.0;
-        int bufferSize = bufferSizes[bufferIndex];
+        int bufferSize = ParametersSizes.bufferSizes[bufferIndex];
 
         while (counter < indexDiff) {
-            int currentFileSize = fileSizes[minIndex + counter];
+            int currentFileSize = ParametersSizes.fileSizes[minIndex + counter];
             int repeat = 10;
 
             while(repeat-- > 0) {
                 double timeNano = writeWithBufferSize(HDDBench.path.get(counter), bufferSize, currentFileSize);
-                timeAvg += timeNano/SECinNANO;
+                timeAvg += timeNano / ParametersSizes.SecInNano;
             }
 
             timeAvg /= 10;
-            double crtScore = ((double)currentFileSize / MB_SIZE) / timeAvg;
+            double crtScore = ((double)currentFileSize / ParametersSizes.MB_SIZE) / timeAvg;
             benchScore += crtScore;
             exportVal += (String.format("%.2f", crtScore) + " MB/sec" + ";");
 
