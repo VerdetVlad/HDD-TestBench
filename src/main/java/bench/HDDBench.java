@@ -7,8 +7,7 @@ import java.util.ArrayList;
 
 public class HDDBench implements IBenchmark {
 
-    private Boolean running;
-    private ArrayList<BufferedOutputStream> outputStream = new ArrayList<BufferedOutputStream>();
+    public static Boolean running;
     public static ArrayList<Integer> bufferSize = new ArrayList<Integer>();
     public static ArrayList<Integer> fileSize = new ArrayList<Integer>();
     public static ArrayList<Boolean> options = new ArrayList<Boolean>();
@@ -54,17 +53,22 @@ public class HDDBench implements IBenchmark {
     //run for the parameters given in initailize
     public void run() {
 
+        running = true;
 
         try {
 
             if(options.get(0) == false) {
 
                 writeOutput = FileWriter.streamWriteFixedSize(bufferSize.get(0), bufferSize.get(1), fileSize.get(0));
+                if(writeOutput == null) { return ; }
                 readOutput = FileReader.streamReadFixedSize(bufferSize.get(0), bufferSize.get(1), fileSize.get(0));
+                if(readOutput == null) { return ; }
             }
             else if(options.get(0) == true) {
                 writeOutput = FileWriter.streamWriteFixedBuffer(fileSize.get(0), fileSize.get(1), bufferSize.get(0));
+                if(writeOutput == null) { return ; }
                 readOutput = FileReader.streamReadFixedBuffer(fileSize.get(0), fileSize.get(1), bufferSize.get(0));
+                if(readOutput == null) { return ; }
             }
             else
             throw new IllegalArgumentException("Argument "

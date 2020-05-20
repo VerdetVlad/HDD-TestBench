@@ -63,9 +63,13 @@ public class FileWriter {
             int currentBufferSize = ParametersSizes.bufferSizes[minIndex + counter];
             int repeat = ParametersSizes.repeatPerSize;
 
-            while(repeat-- > 0) {
+            while(repeat-- > 0 && HDDBench.running) {
                 double timeNano = writeWithBufferSize(HDDBench.path.get(counter), currentBufferSize, fileSize);
                 timeAvg += timeNano / ParametersSizes.SecInNano;
+            }
+
+            if(!HDDBench.running) {
+                return null;
             }
 
             timeAvg /= ParametersSizes.repeatPerSize;
@@ -107,9 +111,13 @@ public class FileWriter {
             int currentFileSize = ParametersSizes.fileSizes[minIndex + counter];
             int repeat = ParametersSizes.repeatPerSize;
 
-            while(repeat-- > 0) {
+            while(repeat-- > 0 && HDDBench.running) {
                 double timeNano = writeWithBufferSize(HDDBench.path.get(counter), bufferSize, currentFileSize);
                 timeAvg += timeNano / ParametersSizes.SecInNano;
+            }
+
+            if(!HDDBench.running) {
+                return null;
             }
 
             timeAvg /= ParametersSizes.repeatPerSize;
