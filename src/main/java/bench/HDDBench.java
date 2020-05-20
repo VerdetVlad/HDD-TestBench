@@ -100,6 +100,8 @@ public class HDDBench implements IBenchmark {
                 //stop program
             }
         }
+
+        clean();
     }
 
 
@@ -112,6 +114,7 @@ public class HDDBench implements IBenchmark {
             currentFile.delete();
         }
         index.delete();
+
 
     }
 

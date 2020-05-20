@@ -260,7 +260,7 @@ public class Controller implements Initializable {
 
         if(check == null) return;
 
-        printToInterface1(check,b[0],b[1],f[0]);
+        printToInterface2(check,f[0],f[1],b[0]);
 
 
     }
