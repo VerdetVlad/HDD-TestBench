@@ -1,0 +1,32 @@
+For buffer: 1 KB and file: 64 KB
+  ->> Write speed: 47.17 MB/sec
+         Read speed: 744.93 MB/sec
+
+For buffer: 2 KB and file: 64 KB
+  ->> Write speed: 94.30 MB/sec
+         Read speed: 611.70 MB/sec
+
+For buffer: 4 KB and file: 64 KB
+  ->> Write speed: 125.17 MB/sec
+         Read speed: 548.28 MB/sec
+
+For buffer: 8 KB and file: 64 KB
+  ->> Write speed: 179.83 MB/sec
+         Read speed: 582.89 MB/sec
+
+For buffer: 16 KB and file: 64 KB
+  ->> Write speed: 200.58 MB/sec
+         Read speed: 702.79 MB/sec
+
+For buffer: 32 KB and file: 64 KB
+  ->> Write speed: 235.81 MB/sec
+         Read speed: 678.74 MB/sec
+
+For buffer: 64 KB and file: 64 KB
+  ->> Write speed: 341.65 MB/sec
+         Read speed: 814.38 MB/sec
+
+On average: 
+  ->> Write speed: 174.93 MB/sec
+         Read speed: 669.10 MB/sec
+

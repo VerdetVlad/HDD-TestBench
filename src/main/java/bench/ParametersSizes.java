@@ -1,7 +1,8 @@
 package bench;
 
 public class ParametersSizes {
-    public static final int repeatPerSize = 4;
+    public static  int repeatPerSize = 1;
+
     public static final int SecInNano = (int)Math.pow(10,9);
     public static final int KB_SIZE = 1024; // KB
     public static final int MB_SIZE = 1024 * 1024; // MB

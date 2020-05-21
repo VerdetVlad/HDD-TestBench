@@ -15,17 +15,13 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+                  <MenuItem fx:id="saveOption" mnemonicParsing="false" onAction="#saveTextBox" text="Save" />
+              <MenuItem fx:id="exitMenu" mnemonicParsing="false" text="Exit" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#aboutMenuAction" text="About" />
             </items>
           </Menu>
         </menus>
@@ -74,7 +70,7 @@
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <Button id="startButton" fx:id="startButton" alignment="CENTER" mnemonicParsing="false" onAction="#startHandle" text="Start" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                    <Button id="startButton" fx:id="startButton" alignment="CENTER" mnemonicParsing="false" onAction="#startHandle" text="Start" GridPane.columnIndex="3" GridPane.rowIndex="4">
                                        <font>
                                           <Font name="Bookman Old Style Bold" size="16.0" />
                                        </font>
@@ -149,20 +145,49 @@
                                           </FXCollections>
                                        </items>
                                     </ChoiceBox>
-                                    <CheckBox fx:id="deleteCheckBox" mnemonicParsing="false" text="Delete Files After?" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                    <CheckBox fx:id="deleteCheckBox" mnemonicParsing="false" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="4">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font></CheckBox>
+                                    <Label text="Nr of repetitions" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox fx:id="nrOfRep1" prefWidth="20.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                       <items>
+                                          <FXCollections fx:factory="observableArrayList">
+                                             <String fx:value="1" />
+                                             <String fx:value="2" />
+                                             <String fx:value="3" />
+                                             <String fx:value="4" />
+                                             <String fx:value="5" />
+                                             <String fx:value="6" />
+                                             <String fx:value="7" />
+                                             <String fx:value="8" />
+                                             <String fx:value="9" />
+                                             <String fx:value="10" />
+                                          </FXCollections>
+
+                                       </items>
+
+                                    </ChoiceBox>
+                                    <Label text="Delete Files After" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
                                  </children>
                                  <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="263.0" minWidth="10.0" prefWidth="184.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="263.0" minWidth="10.0" prefWidth="155.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="50.0" prefWidth="105.0" />
                                     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="380.0" minWidth="10.0" prefWidth="88.0" />
                                     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="140.0" minWidth="50.0" prefWidth="105.0" />
-                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="140.0" minWidth="50.0" prefWidth="135.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="140.0" minWidth="50.0" prefWidth="50.0" />
+                                    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="160.0" minWidth="50.0" prefWidth="160.0" />
                                  </columnConstraints>
                                  <padding>
-                                    <Insets left="20.0" right="165.0" />
+                                    <Insets left="20.0" right="100.0" />
                                  </padding>
                                  <rowConstraints>
                                     <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="44.0" vgrow="SOMETIMES" />
@@ -199,7 +224,7 @@
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <Button id="startButton" fx:id="startButton2" alignment="CENTER" mnemonicParsing="false" onAction="#startHandle2" text="Start" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                    <Button id="startButton" fx:id="startButton2" alignment="CENTER" mnemonicParsing="false" onAction="#startHandle2" text="Start" GridPane.columnIndex="3" GridPane.rowIndex="4">
                                        <font>
                                           <Font name="Bookman Old Style Bold" size="16.0" />
                                        </font>
@@ -274,20 +299,50 @@
                                           </FXCollections>
                                        </items>
                                     </ChoiceBox>
-                                    <CheckBox fx:id="deleteCheckBox2" mnemonicParsing="false" text="Delete Files After?" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                    <CheckBox fx:id="deleteCheckBox2" mnemonicParsing="false" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="4">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font></CheckBox>
+                                    <Label text="Delete Files After" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Nr of repetitions" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox fx:id="nrOfRep2" prefWidth="20.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                       <items>
+                                          <FXCollections fx:factory="observableArrayList">
+                                             <String fx:value="1" />
+                                             <String fx:value="2" />
+                                             <String fx:value="3" />
+                                             <String fx:value="4" />
+                                             <String fx:value="5" />
+                                             <String fx:value="6" />
+                                             <String fx:value="7" />
+                                             <String fx:value="8" />
+                                             <String fx:value="9" />
+                                             <String fx:value="10" />
+                                          </FXCollections>
+
+                                       </items>
+
+                                    </ChoiceBox>
+
                                  </children>
                                  <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="263.0" minWidth="10.0" prefWidth="184.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="263.0" minWidth="10.0" prefWidth="155.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="50.0" prefWidth="105.0" />
                                     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="380.0" minWidth="10.0" prefWidth="88.0" />
                                     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="140.0" minWidth="50.0" prefWidth="105.0" />
-                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="140.0" minWidth="50.0" prefWidth="135.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="140.0" minWidth="50.0" prefWidth="50.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="160.0" minWidth="50.0" prefWidth="160.0" />
                                  </columnConstraints>
                                  <padding>
-                                    <Insets left="20.0" right="165.0" />
+                                    <Insets left="20.0" right="100.0" />
                                  </padding>
                                  <rowConstraints>
                                     <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="44.0" vgrow="SOMETIMES" />
