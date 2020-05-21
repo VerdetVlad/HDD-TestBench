@@ -384,7 +384,17 @@ public class Controller implements Initializable {
 
     public void aboutMenuAction(ActionEvent actionEvent) {
         AlertBox.display("About",
-                "Ce vreti voi.");
+                        "HDD “Holy Grail” Benchmark" +
+                                "\n\n" +
+                                "Read/Write speeds portable test application" +
+                                "\n" +
+                                "for benchmarking HDDs" +
+                                "\n\n" +
+                                "Version@3.1.0" +
+                                "\n\n" +
+                                "Knights of the Round Benchmark" +
+                                "\n" +
+                                "Copyright 2020");
     }
 
 
