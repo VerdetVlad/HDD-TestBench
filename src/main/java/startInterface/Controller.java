@@ -13,10 +13,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -51,6 +48,7 @@ public class Controller implements Initializable {
     public Button startButton;
     public ChoiceBox nrOfRep2;
     public ChoiceBox nrOfRep1;
+    public static MenuItem exitMenu;
 
 
     @FXML
@@ -379,8 +377,15 @@ public class Controller implements Initializable {
         }
     }
 
+    public void closeWindow(ActionEvent actionEvent) {
+        StartInterface.window.close();
+    }
+
+
     public void aboutMenuAction(ActionEvent actionEvent) {
         AlertBox.display("About",
                 "Ce vreti voi.");
     }
+
+
 }

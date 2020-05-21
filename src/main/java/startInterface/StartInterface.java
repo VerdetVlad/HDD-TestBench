@@ -8,18 +8,21 @@ import javafx.stage.Stage;
 
 public class StartInterface extends Application {
 
+    public static Stage window;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("HDD-BenchMark");
-        primaryStage.resizableProperty().setValue(false);
+        window = primaryStage;
+        window.setTitle("HDD-BenchMark");
+        window.resizableProperty().setValue(false);
 
 
 
 
 
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+        window.setScene(new Scene(root));
+        window.show();
     }
 
 
