@@ -36,6 +36,7 @@ public class FileReader {
             timer.resume();
         }
 
+        
 
         long time = timer.stop();
         inputStream.close();
