@@ -53,8 +53,10 @@ public class FileWriter {
 
 
 
+
+        long time = timer.stop();
         outputStream.close();
-        return timer.stop();
+        return time;
     }
 
 
