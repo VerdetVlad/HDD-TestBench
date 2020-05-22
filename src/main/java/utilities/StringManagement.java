@@ -32,8 +32,8 @@ public class StringManagement {
         a = s.split(",");
         String res = new String("");
 
-        res="On average: " +
-                "\n  ->> Write speed: " + a[0] + "\n         Read speed: " + a[1] +"\n\n";
+        res="////////////////////////////////////////////\nOn average: " +
+                "\n  ->> Write speed: " + a[0] + "\n         Read speed: " + a[1] +"\n////////////////////////////////////////////\n\n";
 
         return res;
     }

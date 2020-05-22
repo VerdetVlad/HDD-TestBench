@@ -185,12 +185,12 @@ public class Controller implements Initializable {
         int indexDif = buffIndex2 - buffIndex1 + 1;
         String textBoxPrint = new String("");
 
+        String b = new String("");
 
         int i;
         for (i = 0; i < indexDif; i++) {
-            String a = StringManagement.makeReadAndWrite(strArr[i], bufferSizes[buffIndex1 + i], fileSizes[fileIndex]);
+            b += StringManagement.makeReadAndWrite(strArr[i], bufferSizes[buffIndex1 + i], fileSizes[fileIndex]);
 
-            textBoxPrint += a;
 
             String[] doubleAux = new String[2];
             doubleAux = strArr[i].split(",");
@@ -201,7 +201,7 @@ public class Controller implements Initializable {
         }
 
         String a = StringManagement.makeTotalAverage(strArr[i]);
-        textBoxPrint += a;
+        textBoxPrint += a +b;
         this.textBox.setText(textBoxPrint);
 
         String[] doubleAux = new String[2];
@@ -283,13 +283,13 @@ public class Controller implements Initializable {
 
         int indexDif = fileIndex2 - fileIndex1 + 1;
         String textBoxPrint = new String("");
+        String b = new String("");
 
 
         int i;
         for (i = 0; i < indexDif; i++) {
-            String a = StringManagement.makeReadAndWrite(strArr[i], bufferSizes[buffIndex], fileSizes[fileIndex1 + i]);
+            b += StringManagement.makeReadAndWrite(strArr[i], bufferSizes[buffIndex], fileSizes[fileIndex1 + i]);
 
-            textBoxPrint += a;
 
             String[] doubleAux = new String[2];
             doubleAux = strArr[i].split(",");
@@ -300,7 +300,7 @@ public class Controller implements Initializable {
         }
 
         String a = StringManagement.makeTotalAverage(strArr[i]);
-        textBoxPrint += a;
+        textBoxPrint += a + b;
         this.textBox2.setText(textBoxPrint);
 
         String[] doubleAux = new String[2];
