@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="'Holy Grail' HDD-BenchMark:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="FileReader completed">
+      <change afterPath="$PROJECT_DIR$/RunJava(only if double click fails).cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/HDD-TestB.iml" beforeDir="false" afterPath="$PROJECT_DIR$/'Holy Grail' HDD-BenchMark.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bench/HDDBench.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bench/HDDBench.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bench/ParametersSizes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bench/ParametersSizes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/startInterface/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/startInterface/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/startInterface/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/startInterface/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HDD-TestB.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HDD-TestB.jar" beforeDir="false" afterPath="$PROJECT_DIR$/'Holy Grail' HDD-BenchMark.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/startInterface/StartInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/startInterface/StartInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +128,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Facets" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.39770114" />
     <property name="recentsLimit" value="5" />
@@ -134,6 +141,9 @@
       <recent name="C:\Users\Vlad\Desktop\HDD\HDD-TestB" />
       <recent name="C:\Users\Vlad\Desktop\HDD\HDD-TestB\src\main\java" />
       <recent name="C:\Users\Vlad\Desktop\HDD\HDD-TestB\src\main\java\startInterface" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Vlad\Desktop\HDD\HDD-TestB" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main (1)">
@@ -164,7 +174,7 @@
     </configuration>
     <configuration name="FileWriter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="bench.FileWriter" />
-      <module name="HDD-TestB" />
+      <module name="Holy Grail HDD-BenchMark" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -172,7 +182,7 @@
     </configuration>
     <configuration name="Main (1)" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="HDD-TestB" />
+      <module name="Holy Grail HDD-BenchMark" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -180,7 +190,7 @@
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="sample.Main" />
-      <module name="HDD-TestB" />
+      <module name="Holy Grail HDD-BenchMark" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -196,7 +206,7 @@
     </configuration>
     <configuration name="StartInterface (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="startInterface.StartInterface" />
-      <module name="HDD-TestB" />
+      <module name="Holy Grail HDD-BenchMark" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -204,7 +214,7 @@
     </configuration>
     <configuration name="StartInterface" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="StartInterface" />
-      <module name="HDD-TestB" />
+      <module name="Holy Grail HDD-BenchMark" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -293,6 +303,8 @@
       <workItem from="1589913540510" duration="37000" />
       <workItem from="1589913594889" duration="3907000" />
       <workItem from="1589997186623" duration="2720000" />
+      <workItem from="1590132441294" duration="64000" />
+      <workItem from="1590132526871" duration="728000" />
     </task>
     <task id="LOCAL-00001" summary="2.0">
       <created>1589827651879</created>
@@ -390,26 +402,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1154" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589894681149" />
-    <state width="1877" height="211" key="GridCell.Tab.0.bottom" timestamp="1589997866637">
+    <state width="1877" height="368" key="GridCell.Tab.0.bottom" timestamp="1590132166241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1316" height="179" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1360.728@1920.0.1360.728" timestamp="1589828675946" />
-    <state width="1877" height="211" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589997866637" />
-    <state width="1877" height="211" key="GridCell.Tab.0.center" timestamp="1589997866637">
+    <state width="1877" height="368" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590132166241" />
+    <state width="1877" height="368" key="GridCell.Tab.0.center" timestamp="1590132166241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1316" height="179" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1360.728@1920.0.1360.728" timestamp="1589828675946" />
-    <state width="1877" height="211" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589997866637" />
-    <state width="1877" height="211" key="GridCell.Tab.0.left" timestamp="1589997866636">
+    <state width="1877" height="368" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590132166241" />
+    <state width="1877" height="368" key="GridCell.Tab.0.left" timestamp="1590132166241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1316" height="179" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1360.728@1920.0.1360.728" timestamp="1589828675945" />
-    <state width="1877" height="211" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589997866636" />
-    <state width="1877" height="211" key="GridCell.Tab.0.right" timestamp="1589997866637">
+    <state width="1877" height="368" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590132166241" />
+    <state width="1877" height="368" key="GridCell.Tab.0.right" timestamp="1590132166241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1316" height="179" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1360.728@1920.0.1360.728" timestamp="1589828675946" />
-    <state width="1877" height="211" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589997866637" />
+    <state width="1877" height="368" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590132166241" />
     <state width="938" height="211" key="GridCell.Tab.1.bottom" timestamp="1589990500836">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -430,10 +442,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="672" y="236" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589885115884" />
-    <state x="875" y="162" key="SettingsEditor" timestamp="1589914073009">
+    <state x="743" y="231" key="RollbackChangesDialog" timestamp="1590131328043">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="875" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589914073009" />
+    <state x="743" y="231" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590131328043" />
+    <state x="875" y="162" key="SettingsEditor" timestamp="1590132800402">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="875" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1590132800402" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1589921530294">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -466,7 +482,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bench/FileWriter.java</url>
-          <line>65</line>
+          <line>68</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>

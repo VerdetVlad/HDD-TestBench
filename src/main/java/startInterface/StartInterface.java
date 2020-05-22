@@ -14,7 +14,7 @@ public class StartInterface extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         window = primaryStage;
-        window.setTitle("HDD-BenchMark");
+        window.setTitle("Holy Grail");
         window.resizableProperty().setValue(false);
 
 
