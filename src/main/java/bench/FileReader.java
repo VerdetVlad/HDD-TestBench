@@ -31,7 +31,9 @@ public class FileReader {
 
             inputStream.read(buffer,0,myBufferSize);
 
+            timer.pause();
             i++;
+            timer.resume();
         }
 
         inputStream.close();

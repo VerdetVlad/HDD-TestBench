@@ -41,11 +41,12 @@ public class FileWriter {
             timer.pause();
             // generate random content to write
             rand.nextBytes(buffer);
+            i++;
             //resume
             timer.resume();
 
             outputStream.write(buffer);
-            i++;
+
         }
 
 
