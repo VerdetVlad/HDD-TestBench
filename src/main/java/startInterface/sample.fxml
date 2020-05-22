@@ -157,7 +157,7 @@
                                     <ChoiceBox fx:id="nrOfRep1" prefWidth="20.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
                                        <items>
                                           <FXCollections fx:factory="observableArrayList">
-                                             <String fx:value="1" />
+
                                              <String fx:value="2" />
                                              <String fx:value="3" />
                                              <String fx:value="4" />
@@ -316,7 +316,7 @@
                                     <ChoiceBox fx:id="nrOfRep2" prefWidth="20.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
                                        <items>
                                           <FXCollections fx:factory="observableArrayList">
-                                             <String fx:value="1" />
+
                                              <String fx:value="2" />
                                              <String fx:value="3" />
                                              <String fx:value="4" />

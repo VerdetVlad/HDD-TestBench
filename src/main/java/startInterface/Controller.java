@@ -84,8 +84,8 @@ public class Controller implements Initializable {
         fileChoiceTab21.setValue("32 KB");
         fileChoiceTab22.setValue("32 KB");
 
-        nrOfRep1.setValue("1");
-        nrOfRep2.setValue("1");
+        nrOfRep1.setValue("2");
+        nrOfRep2.setValue("2");
 
 
         textBox.setEditable(false);
@@ -144,7 +144,7 @@ public class Controller implements Initializable {
 
     public void startHandle(ActionEvent actionEvent) {
 
-        int aux = nrOfRep1.getSelectionModel().getSelectedIndex();
+        int aux = nrOfRep1.getSelectionModel().getSelectedIndex()+1;
 
         ParametersSizes.repeatPerSize = aux + 1;
 
@@ -240,7 +240,7 @@ public class Controller implements Initializable {
 
     public void startHandle2(ActionEvent actionEvent) {
 
-        int aux = nrOfRep2.getSelectionModel().getSelectedIndex();
+        int aux = nrOfRep2.getSelectionModel().getSelectedIndex()+1;
         ParametersSizes.repeatPerSize = aux + 1;
 
 
